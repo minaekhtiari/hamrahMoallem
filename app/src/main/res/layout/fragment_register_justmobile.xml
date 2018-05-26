@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/art2"
+    android:orientation="vertical"
+    >
+
+    <ProgressBar
+        android:id="@+id/progressRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        />
+
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_centerInParent="true"
+            >
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/curve_bg_blue"
+                >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/mobile"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <EditText
+                    android:id="@+id/fragment_register_EditMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/hint_mobile"
+                    android:inputType="phone"
+                    android:background="@android:color/transparent"
+                    android:layout_weight="8"
+                    android:gravity="start|center"
+                    android:maxLength="11"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="8dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/fragment_register_Btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/accept"
+                android:background="@drawable/curve_bg_purple"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_below="@+id/linear"
+                android:layout_marginTop="8dp"
+                />
+
+        </RelativeLayout>
+
+
+</RelativeLayout>

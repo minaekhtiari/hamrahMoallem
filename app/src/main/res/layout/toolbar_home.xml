@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@drawable/bg_red_bottom_shadow"
+    android:padding="8dp"
+    >
+    <RelativeLayout
+        android:id="@+id/toolbar_home_imageMessage_relative"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        >
+        <ImageView
+            android:id="@+id/toolbar_home_imageMessage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/messages"
+            android:tint="@color/white"
+            android:layout_alignParentLeft="true"
+            />
+        <RelativeLayout
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentRight="true"
+            >
+            <ImageView
+                android:id="@+id/toolbar_home_image_newMessageCountBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/back_messag_count"
+                android:tint="@color/green"
+                />
+            <TextView
+                android:id="@+id/toolbar_home_text_newMessageCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="9"
+                android:gravity="center"
+                android:textSize="10sp"
+                android:paddingTop="2dp"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/toolbar_home_imageMenu_relative"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="8dp"
+        >
+
+        <ImageView
+            android:id="@+id/toolbar_home_imageMenu"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/menu_icon"
+            android:tint="@color/white"
+            />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/toolbar_home_frameTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/toolbar_home_imageMenu_relative"
+        android:layout_toRightOf="@+id/toolbar_home_imageMessage_relative"
+        >
+        <TextView
+            android:id="@+id/toolbar_home_frameTitle_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:text="@string/titr"
+            android:textColor="@color/white"
+            android:paddingTop="2dp"
+            android:textSize="12sp"
+            />
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <FrameLayout
+        android:id="@+id/fragment_base_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        android:background="@color/white"
+        >
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/fragment_base_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:background="@color/white"
+        android:layout_below="@id/toolbar_justtitr_text_titr"
+        >
+
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fragment_messages_fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/filter_outline"
+        android:tint="@color/white"
+        android:layout_alignParentEnd="true"
+        app:fabSize="mini"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/art2"
+    >
+
+    <TextView
+        android:id="@+id/toolbar_justtitr_text_titr"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/bg_red_bottom_shadow"
+        android:padding="8dp"
+        android:text="محتوای مشاوره ای"
+        />
+    <TextView
+        android:id="@+id/activity_main_relative_textNoContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="هیچ اطلاعاتی یافت نشد"
+        android:gravity="center"
+        />
+</RelativeLayout>

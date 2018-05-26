@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="apps.hillavas.com.hamrahdars.HOME"
+    >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        >
+
+    </android.support.v4.view.ViewPager>
+
+    <TextView
+        android:id="@+id/home_iKnow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="بلدم"
+        android:layout_margin="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:visibility="invisible"
+        android:textColor="@color/bottomBarColor"
+        />
+
+    <FrameLayout
+        android:id="@+id/frameLayout_finish"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout_base"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+    </FrameLayout>
+
+
+</RelativeLayout>
