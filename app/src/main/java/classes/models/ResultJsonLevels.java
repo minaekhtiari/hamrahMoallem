@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ResultJsonLevels {
 
-    @SerializedName("IsSuccessfull")
+    @SerializedName("IsSuccessful")
     @Expose
     private boolean isSuccessfull;
     @SerializedName("Message")

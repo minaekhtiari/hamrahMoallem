@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 public class ResultJson {
 
-    @SerializedName("IsSuccessfull")
+    @SerializedName("IsSuccessful")
     @Expose
     private boolean isSuccessfull;
     @SerializedName("Message")

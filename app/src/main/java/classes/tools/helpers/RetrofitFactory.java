@@ -12,7 +12,7 @@ public class RetrofitFactory {
 
     private static final String URL =
 //            "http://192.168.101.33:7080/";
-            "http://79.175.138.95:1010/";
+            "http://79.175.138.94:1010/";
 
     private static Retrofit retrofit;
 

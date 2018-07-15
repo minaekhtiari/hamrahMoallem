@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResultJsonPurchase {
 
-    @SerializedName("IsSuccessfull")
+    @SerializedName("IsSuccessful")
     @Expose
     private boolean isSuccessfull;
     @SerializedName("Message")

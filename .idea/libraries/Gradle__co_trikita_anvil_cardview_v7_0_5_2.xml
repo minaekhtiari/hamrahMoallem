@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: co.trikita:anvil-cardview-v7-0.5.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/anvil-cardview-v7-0.5.2.aar/b2fb281252960f6a762f29db9ba03254/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/anvil-cardview-v7-0.5.2.aar/b2fb281252960f6a762f29db9ba03254/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/co.trikita/anvil-cardview-v7/0.5.2/1b12a90c27dc60b7a8c660f28e1a1bed5bd96d03/anvil-cardview-v7-0.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
