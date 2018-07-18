@@ -129,7 +129,9 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_exitAccount)).setOnClickListener(this);
         ((LinearLayout)getActivity().findViewById(R.id.personal_linear_addCredit)).setOnClickListener(this);
 
-        tv.setText("کاربر گرامی ، شما در سرویس همراه معلم عضو هستید . اعتبار شما روزانه 5000 تومان در ازای پرداخت 500 تومان اضافه خواهد شد که با آن قادر به خرید دروس موجود در برنامه خواهید بود . ");
+        tv.setText("مشترک گرامی\n" +
+                "هزینه روزانه سرویس همراه\u200Cمعلم 500 تومان است که معادل 5000 تومان اعتبار درون\u200Cبرنامه\u200Cای به اعضای سرویس تعلق می\u200Cگیرد.\n" +
+                "چنانچه عضو سرویس نیستید و قصد استفاده از دروس ویدئویی همراه\u200Cمعلم را دارید، با ارسال 2 به 307574 می\u200Cتوانید عضو سرویس شوید.");
 
         if(sharedPreferencesHome.getString(PICTURE_PROFILE_ADDRESS , "").length() > 0) {
             Glide.with(getActivity())
@@ -149,7 +151,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
         });
 
 
-        ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_edit)).setOnClickListener(new View.OnClickListener() {
+        ((TextView)getActivity().findViewById(R.id.personal_image_edit)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialogeditinfo = new Dialog(getActivity());
@@ -279,7 +281,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
 
                 break;
             }
-            case R.id.personal_relative_report: {
+            case R.id.personal_relative_report:
                 ((FrameLayout)getActivity().findViewById(R.id.first_frame)).setVisibility(View.VISIBLE);
                 removeFragments();
                 new FragmentHelper(
@@ -288,17 +290,17 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
                         getActivity().getSupportFragmentManager()
                 ).replace(true);
                 break;
-            }
-            case R.id.personal_linear_addCredit: {
-                ((FrameLayout)getActivity().findViewById(R.id.first_frame)).setVisibility(View.VISIBLE);
-                removeFragments();
-                new FragmentHelper(
-                        new Fragment_add_credit(),
-                        R.id.first_frame,
-                        getActivity().getSupportFragmentManager()
-                ).replace(true);
-                break;
-            }
+
+//            case R.id.personal_linear_addCredit: {
+//                ((FrameLayout)getActivity().findViewById(R.id.first_frame)).setVisibility(View.VISIBLE);
+//                removeFragments();
+//                new FragmentHelper(
+//                        new Fragment_add_credit(),
+//                        R.id.first_frame,
+//                        getActivity().getSupportFragmentManager()
+//                ).replace(true);
+//                break;
+//            }
             case R.id.personal_relative_exitAccount: {
                 getActivity().finish();
                 break;

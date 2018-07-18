@@ -362,7 +362,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
 
                                     Intent intent = new Intent(Intent.ACTION_VIEW);
 
-                                    intent.setDataAndType(Uri.parse("http://ur URL"), "video/*");
+                                    intent.setDataAndType(Uri.parse(videoUrl), "video/*");
 
                                     startActivity(Intent.createChooser(intent, "Complete action using"));
 

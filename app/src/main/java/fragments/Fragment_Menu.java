@@ -228,6 +228,7 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener{
                     Fragment_pager fragment_pager = new Fragment_pager();
                     fragment_pager.setArguments(bundle);
 
+            sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , category.getCategoryId()).commit();
 
             new FragmentHelper(
                     fragment_pager,

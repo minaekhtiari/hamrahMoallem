@@ -12,18 +12,15 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import apps.hillavas.com.hamrahdars.FirstContentActivity;
-import apps.hillavas.com.hamrahdars.MenuActivity;
 import apps.hillavas.com.hamrahdars.R;
 import classes.models.RequestCodeGiverModel;
 import classes.models.ResultJson;
 import classes.tools.helpers.RetrofitFactory;
-import factories.FragmentHelper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,8 +92,8 @@ public class Fragment_CodeRequest extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (editCode.getText().length() == 4) {
                     final RequestCodeGiverModel requestCodeGiverModel = new RequestCodeGiverModel();
-                    requestCodeGiverModel.setMobileNumber(sharedPreferencesHome.getLong(MOBILE_NUMBER, 0));
-                    requestCodeGiverModel.setRequestId(sharedPreferencesHome.getString(RESULTCODE, ""));
+                    //requestCodeGiverModel.setMobileNumber(sharedPreferencesHome.getLong(MOBILE_NUMBER, 0));
+                    requestCodeGiverModel.setTransactionId(sharedPreferencesHome.getString(RESULTCODE, ""));
 
                     try {
                         requestCodeGiverModel.setPin(Long.valueOf(editCode.getText().toString()));

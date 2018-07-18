@@ -100,6 +100,8 @@ public class FirstContentActivity extends AppCompatActivity {
     private String fileUrl = null ;
     private String fileAddress = null ;
     ImageView imagePersonalPictureFromFragment;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -297,8 +299,8 @@ public class FirstContentActivity extends AppCompatActivity {
     }
 
     public static void gotoMessaging(){
-        bottomNavigation.setCurrentItem(1);
-        viewPager.setCurrentItem(1);
+        bottomNavigation.setCurrentItem(0);
+        viewPager.setCurrentItem(0);
     }
 
     @Override

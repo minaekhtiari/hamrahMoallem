@@ -67,7 +67,7 @@ public class FileManagerHelper {
         try {
             for(String s : fileIds) {
                 ResultJsonGetFileURL jsURL = fileManagerClient.getFileUrl(s, fileType).execute().body();
-                if (jsURL.isIsSuccessfull())
+                if (jsURL!=null && jsURL.isIsSuccessfull())
                     fileUrls.add(jsURL.getResult().getFileAddress());
             }
         } catch (IOException e) {

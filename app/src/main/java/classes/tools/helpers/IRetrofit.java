@@ -15,6 +15,7 @@ import classes.models.ResultJsonObject;
 import classes.models.ResultJsonPackage;
 import classes.models.ResultJsonPurchase;
 import classes.models.SignUpMemberModel;
+import classes.models.SubscribeModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -34,7 +35,11 @@ public interface IRetrofit {
     Call<ResultJson> register(@Body SignUpMemberModel signUpMemberModel);
 
     @Headers("Content-Type: application/json; charset=utf-8")
-    @POST("/OTP/ConfirmOtp")
+    @POST("OTP/SubScribeRequest")
+    Call<ResultJson> subscribe(@Body SubscribeModel subscribeModel);
+
+    @Headers("Content-Type: application/json; charset=utf-8")
+    @POST("/OTP/SubscribeConfirm")
     Call<ResultJson> requestCodeGiver(@Body RequestCodeGiverModel requestCodeGiverModel);
 
     @Headers("Content-Type: application/json; charset=utf-8")

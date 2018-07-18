@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class FileGiver {
 
-    @SerializedName("IsSuccessful")
+    @SerializedName("IsSuccessfull")
     @Expose
     private boolean isSuccessfull;
     @SerializedName("Message")

@@ -6,33 +6,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class RequestCodeGiverModel {
 
-    @SerializedName("MobileNumber")
-    @Expose
-    private long mobileNumber;
+//    @SerializedName("MobileNumber")
+//    @Expose
+//    private long mobileNumber;
 
-    @SerializedName("requestId")
+    @SerializedName("TransactionId")
     @Expose
-    private String requestId;
+    private String transactionId;
 
     @SerializedName("pin")
     @Expose
     private long pin;
 
 
-    public long getMobileNumber() {
-        return mobileNumber;
+//    public long getMobileNumber() {
+//        return mobileNumber;
+//    }
+//
+//    public void setMobileNumber(long mobileNumber) {
+//        this.mobileNumber = mobileNumber;
+//    }
+
+    public String getTransactionId() {
+        return transactionId;
     }
 
-    public void setMobileNumber(long mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
-
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public void setRequestId(String requestId) {
-        this.requestId = requestId;
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     public long getPin() {

@@ -73,134 +73,13 @@ public class HOME extends AppCompatActivity {
         transaction = getSupportFragmentManager().beginTransaction();
 
 
+        // check user is subscribe
 
-
-
-
-
-
-
-//        AHBottomNavigation bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
-//
-//// Create items
-//        AHBottomNavigationItem item1 = new AHBottomNavigationItem("1", android.R.drawable.ic_dialog_alert , R.color.bottomBarColor);
-//        AHBottomNavigationItem item2 = new AHBottomNavigationItem("2",  android.R.drawable.ic_dialog_alert , R.color.bottomBarColor);
-//        AHBottomNavigationItem item3 = new AHBottomNavigationItem("3",  android.R.drawable.ic_dialog_alert , R.color.bottomBarColor);
-//
-//// Add items
-//        bottomNavigation.addItem(item1);
-//        bottomNavigation.addItem(item2);
-//        bottomNavigation.addItem(item3);
-//
-//// Set background color
-//        bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FEFEFE"));
-//
-//// Disable the translation inside the CoordinatorLayout
-//        bottomNavigation.setBehaviorTranslationEnabled(false);
-//
-//// Enable the translation of the FloatingActionButton
-////        bottomNavigation.manageFloatingActionButtonBehavior(floatingActionButton);
-//
-//// Change colors
-//        bottomNavigation.setAccentColor(Color.parseColor("#F63D2B"));
-//        bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
-//
-//// Force to tint the drawable (useful for font with icon for example)
-//        bottomNavigation.setForceTint(true);
-//
-//// Display color under navigation bar (API 21+)
-//// Don't forget these lines in your style-v21
-//// <item name="android:windowTranslucentNavigation">true</item>
-//// <item name="android:fitsSystemWindows">true</item>
-//        bottomNavigation.setTranslucentNavigationEnabled(true);
-//
-//// Manage titles
-//        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE);
-//        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
-//        bottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_HIDE);
-//
-//// Use colored navigation with circle reveal effect
-//        bottomNavigation.setColored(true);
-//
-//// Set current item programmatically
-//        bottomNavigation.setCurrentItem(1);
-//
-//// Customize notification (title, background, typeface)
-//        bottomNavigation.setNotificationBackgroundColor(Color.parseColor("#F63D2B"));
-//
-//// Add or remove notification for each item
-////        bottomNavigation.setNotification("1", 3);
-//// OR
-//        AHNotification notification = new AHNotification.Builder()
-//                .setText("1")
-//                .setBackgroundColor(ContextCompat.getColor(this, R.color.gray_500))
-//                .setTextColor(ContextCompat.getColor(this, R.color.gray_500))
-//                .build();
-//        bottomNavigation.setNotification(notification, 1);
-//
-//// Enable / disable item & set disable color
-//        bottomNavigation.enableItemAtPosition(2);
-//        bottomNavigation.disableItemAtPosition(2);
-//        bottomNavigation.setItemDisableColor(Color.parseColor("#3A000000"));
-//
-//// Set listeners
-//        bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
-//            @Override
-//            public boolean onTabSelected(int position, boolean wasSelected) {
-//                // Do something cool here...
-//                return true;
-//            }
-//        });
-//        bottomNavigation.setOnNavigationPositionListener(new AHBottomNavigation.OnNavigationPositionListener() {
-//            @Override public void onPositionChange(int y) {
-//                // Manage the new y position
-//            }
-//        });
-
-
-
-//        token = "658DF8F9-160A-4ED2-90BB-EB17D1661EC5";
-//        sharedPreferencesHome.edit().putString(GUID , token).commit();
 
         if(token != null && token.length() > 0)
-//            transaction.replace(R.id.frameLayout_base , new Fragment_Password()).commit();
             transaction.replace(R.id.frameLayout_base , new Fragment_Splash()).commit();
         else
             transaction.replace(R.id.frameLayout_base , new Fragment_RegisterJustMobile()).commit();
-//        else {
-//            viewPagerHome.setVisibility(View.VISIBLE);
-//            viewPagerHome.setAdapter(new Fragment_Pager_adapter_show_case(getSupportFragmentManager()));
-//            tvIKnow.setVisibility(View.VISIBLE);
-//            tvIKnow.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    viewPagerHome.setCurrentItem(4);
-//                    tvIKnow.setVisibility(View.INVISIBLE);
-//                }
-//            });
-//            viewPagerHome.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//                @Override
-//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                    if(position >3)
-//                        tvIKnow.setVisibility(View.INVISIBLE);
-//                    else
-//                        tvIKnow.setVisibility(View.VISIBLE);
-//                }
-//
-//                @Override
-//                public void onPageSelected(int position) {
-//
-//                }
-//
-//                @Override
-//                public void onPageScrollStateChanged(int state) {
-//
-//                }
-//            });
-////            transaction.replace(R.id.frameLayout_base, new Fragment_Register()).commit();
-////            sharedPreferencesHome.edit().putLong(MOBILE_NUMBER, 0).commit();
-////            sharedPreferencesHome.edit().putString(PASSWORD, "").commit();
-//        }
 
     }
 

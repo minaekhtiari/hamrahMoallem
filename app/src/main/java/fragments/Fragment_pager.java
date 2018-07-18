@@ -178,25 +178,25 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
 //                    }
 //                });
 
-        int lastSelectedCategoryId = 0;
+       // int lastSelectedCategoryId = 0;
 
-        if(sharedPreferencesHome.contains(LAST_CATEGORYID_SELECTED))
-            lastSelectedCategoryId = sharedPreferencesHome.getInt(LAST_CATEGORYID_SELECTED , 0);
+        //if(sharedPreferencesHome.contains(LAST_CATEGORYID_SELECTED))
+            new TaskLoadContents().execute(sharedPreferencesHome.getInt(LAST_CATEGORYID_SELECTED , 491));
 
-        if(lastSelectedCategoryId > 0)
-            selectedCategoryId = lastSelectedCategoryId;
-
-        if(getArguments() != null && getArguments().containsKey("CATEGORY_ID_SELECTED"))
-            selectedCategoryId = getArguments().getInt("CATEGORY_ID_SELECTED");
-
-
-        if(selectedCategoryId > 0) {
-            new TaskLoadContents().execute(selectedCategoryId);
-        }
-        else
-            new TaskLoadContents().execute(0);
-//        checkNewAnswerCount();
-        new TaskLoadProfileInfo().execute();
+//        if(lastSelectedCategoryId > 0)
+//            selectedCategoryId = lastSelectedCategoryId;
+//
+//        if(getArguments() != null && getArguments().containsKey("CATEGORY_ID_SELECTED"))
+//            selectedCategoryId = getArguments().getInt("CATEGORY_ID_SELECTED");
+//
+//
+//        if(selectedCategoryId > 0) {
+//            new TaskLoadContents().execute(selectedCategoryId);
+//        }
+//        else
+//            new TaskLoadContents().execute(0);
+////        checkNewAnswerCount();
+//        new TaskLoadProfileInfo().execute();
 //        ((TextView)getActivity().findViewById(R.id.toolbar_justtitr_text_titr)).setText("محتوا");
 
     }
@@ -505,8 +505,6 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
 
     @Override
     public void onResume() {
-
-
 
         super.onResume();
         if (sharedPreferencesHome.getBoolean("BUY", false)) {

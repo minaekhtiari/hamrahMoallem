@@ -130,12 +130,15 @@ public class QuestionHelper {
         ResultJsonOneQuestion resultJsonOneQuestion = null;
         try {
             resultJsonOneQuestion = retrofitMessagingClient.getQuestion(token , questionId).execute().body();
+
+            if(resultJsonOneQuestion!=null && resultJsonOneQuestion.isIsSuccessfull()){
+                return resultJsonOneQuestion.getResult();
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(resultJsonOneQuestion.isIsSuccessfull()){
-            return resultJsonOneQuestion.getResult();
-        }
+
         return null;
     }
 
@@ -144,12 +147,13 @@ public class QuestionHelper {
         ResultJsonAllAnswer resultJsonAllAnswer = null;
         try {
             resultJsonAllAnswer = retrofitMessagingClient.getAnswersByQuestionId(token , questionId).execute().body();
+            if(resultJsonAllAnswer!=null && resultJsonAllAnswer.isIsSuccessfull()){
+                return resultJsonAllAnswer.getAnswers();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(resultJsonAllAnswer.isIsSuccessfull()){
-            return resultJsonAllAnswer.getAnswers();
-        }
+
         return null;
     }
 

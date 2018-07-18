@@ -66,5 +66,13 @@
         <item name="android:dividerHeight">5dp</item>
     </style>
 
+
+    <!--<style name="buttonThemeBlue" parent="AppTheme">-->
+        <!--<item name="colorButtonNormal">@color/md_blue_500</item>-->
+    <!--</style>-->
+    <!--<style name="buttonThemeWhite" parent="AppTheme">-->
+        <!--<item name="colorButtonNormal">@color/md_white_1000</item>-->
+    <!--</style>-->
+
 </resources>
 

@@ -43,7 +43,7 @@ public interface IRetrofitMessaging {
 
     @GET("answer/GetAnsweredByQuestionId")
     Call<ResultJsonAllAnswer> getAnswersByQuestionId(@Query("token") String token ,
-                                                     @Query("questionId") int questionId);
+                                                     @Query("h,q") int questionId);
 
     @GET("Question/ReadedAnswerWithMember")
     Call<JsonResultBoolean> readedAnswerQuestion(@Query("token") String token ,
