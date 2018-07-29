@@ -13,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPropertyAnimatorListenerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -71,6 +72,7 @@ public class HOME extends AppCompatActivity {
         frameBase = (FrameLayout) findViewById(R.id.frameLayout_base);
         frameFinish = (FrameLayout) findViewById(R.id.frameLayout_finish);
         transaction = getSupportFragmentManager().beginTransaction();
+
 
 
         // check user is subscribe

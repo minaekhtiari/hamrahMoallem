@@ -9,6 +9,7 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     android:background="@color/white"
+    android:layoutDirection="rtl"
     >
 
     <RelativeLayout
@@ -77,7 +78,7 @@
                                 />
                             <TextView
                                 android:id="@+id/fragment_messaging_answer_text_question_subject"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"

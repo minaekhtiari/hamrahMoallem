@@ -321,7 +321,7 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener{
             if (!category.isFromTitr()) {
                 for (CategoryWithParentChild c : categoriesList) {
                     if (c.getCategoryId() == category.getCategoryId())
-                        isThere = true;
+                         isThere = true;
                 }
                 if (!isThere) {
                     if (categoriesList.size() > category.getDepth()) {

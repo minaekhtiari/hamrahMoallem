@@ -49,7 +49,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import adapters.BottomNavigationAdapter;
+import classes.models.AndroidUtils;
+import classes.models.Device;
+import classes.models.ResultJson;
 import classes.models.ResultUploadFileResponse;
+import classes.models.SubscribeModel;
+import classes.tools.helpers.RetrofitFactory;
 import factories.FragmentHelper;
 import fragments.Fragment_AboutUs;
 import fragments.Fragment_Menu;
@@ -57,6 +62,9 @@ import fragments.Fragment_Messages;
 import fragments.Fragment_consultant;
 import fragments.Fragment_pager;
 import fragments.Fragment_personal;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseSequence;
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView;
@@ -205,6 +213,44 @@ public class FirstContentActivity extends AppCompatActivity {
         });
 
         imagePersonalPictureFromFragment = (ImageView) findViewById(R.id.personal_image_profile);
+        getDeviceinfo();
+    }
+
+    private void getDeviceinfo() {
+
+        Device device=new Device();
+        AndroidUtils androidUtils=new AndroidUtils(this);
+        device.setManufacturer(String.valueOf(androidUtils.getManufacturer()));
+        device.setCpu(androidUtils.getCpu());
+        device.setOperator(androidUtils.getSimOperator());
+        device.setUUID(androidUtils.getUUID());
+        device.setApiVersion(androidUtils.getAndroidVersionCode());
+        device.setOsVersion(androidUtils.getAndroidVersionName());
+        device.setDpi(androidUtils.getDpi());
+        device.setResolotion(androidUtils.getResolution());
+        device.setProductName(androidUtils.getBrandName());
+        device.setModelName(androidUtils.getModelName());
+        device.setRam(androidUtils.getRam());
+        device.setHardware(androidUtils.getHardware());
+        device.setNetworkName(androidUtils.getModelName());
+        device.setNetworkType(androidUtils.getNetworkType());
+
+
+
+
+        RetrofitFactory.getRetrofitClient().getDeviceifo(device).enqueue(new Callback<ResultJson>() {
+            @Override
+            public void onResponse(Call<ResultJson> call, Response<ResultJson> response) {
+               // Toast.makeText(FirstContentActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<ResultJson> call, Throwable t) {
+               // Toast.makeText(FirstContentActivity.this,t.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        });
     }
 
     @Override

@@ -2,6 +2,7 @@ package classes.tools.helpers;
 
 import classes.models.ContentGiver;
 import classes.models.ContentsGiver;
+import classes.models.Device;
 import classes.models.ProfileNew;
 import classes.models.RequestCodeGiverModel;
 import classes.models.ResultJson;
@@ -11,9 +12,9 @@ import classes.models.ResultJsonForBuy;
 import classes.models.ResultJsonForProfileInfo;
 import classes.models.ResultJsonForViewCount;
 import classes.models.ResultJsonLevels;
-import classes.models.ResultJsonObject;
 import classes.models.ResultJsonPackage;
 import classes.models.ResultJsonPurchase;
+import classes.models.VersionInfo;
 import classes.models.SignUpMemberModel;
 import classes.models.SubscribeModel;
 import retrofit2.Call;
@@ -109,5 +110,11 @@ public interface IRetrofit {
     @GET("Package/GetPackages")
     Call<ResultJsonForBuy> buyAPackage(@Query("token") String token);
 
+    @POST("Device/RegisterDevice")
+    Call<ResultJson> getDeviceifo(@Body Device device);
+
+
+    @GET("App/GetVersion")
+    Call<VersionInfo> getDevicevrsion(@Query("appType")  String appType );
 
 }

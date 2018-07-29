@@ -65,6 +65,7 @@ public class Fragment_RegisterJustMobile extends Fragment implements View.OnClic
 
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
