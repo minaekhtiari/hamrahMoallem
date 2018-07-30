@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -24,9 +25,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 
@@ -93,7 +96,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
     RelativeLayout relativeLayoutImageBack;
     Home_Pager_Page page = new Home_Pager_Page();
     ImageView ivBanner;
-    //VideoView videoView;
+    VideoView videoView;
     String videoUrl = "";
     String audioUrl = "";
     boolean videoVisible = false;
@@ -117,7 +120,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
     int categoryId = 0;
     int position = 0;
     Content content = null;
-
+    public MediaPlayer mp;
 
     @Nullable
     @Override
@@ -160,6 +163,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
         ivBanner = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_ImageBanner);
         ivVideoIcon = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_image_videoIcon);
         tvBtnBuy = (TextView) getActivity().findViewById(R.id.fragment_article_btn_buy);
+        videoView=getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
 //        ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
         tvBtnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -356,9 +360,15 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
                         if(!lock) {
                             if (!videoVisible) {
                                 if (videoUrl.length() > 0) {
-                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
-                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
-                                    startActivity(intentVideo);
+//                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
+//                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
+//                                    startActivity(intentVideo);
+                                    MediaController mediaController=new MediaController(getContext());
+                                    mediaController.setAnchorView(videoView);
+                                    videoView.setMediaController(mediaController);
+                                    videoView.setVideoURI(Uri.parse(videoUrl));
+                                    videoView.start();
+
                                 }
                                 videoVisible = true;
                             } else {

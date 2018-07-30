@@ -2,9 +2,11 @@ package fragments;
 
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -24,9 +26,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 
@@ -93,7 +97,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     RelativeLayout relativeLayoutImageBack;
     Home_Pager_Page page = new Home_Pager_Page();
     ImageView ivBanner;
-    //VideoView videoView;
+    VideoView videoView;
     String videoUrl = "";
     String audioUrl = "";
     boolean videoVisible = false;
@@ -117,6 +121,10 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     int categoryId = 0;
     int position = 0;
     Content content = null;
+    public MediaPlayer mp;
+    public MediaController mediaController;
+    ProgressDialog progressDialog;
+
 
 
     @Nullable
@@ -160,7 +168,10 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         ivBanner = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_ImageBanner);
         ivVideoIcon = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_image_videoIcon);
         tvBtnBuy = (TextView) getActivity().findViewById(R.id.fragment_article_btn_buy);
+        videoView=(VideoView)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
         ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Loading...");
         tvBtnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -349,26 +360,43 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/iransans.ttf");
             jText.setTypeFace(tf);
 
-            ivBanner.setOnClickListener(new View.OnClickListener() {
+            ivVideoIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (videoUrl.length() > 0) {
                         if(!lock) {
                             if (!videoVisible) {
                                 if (videoUrl.length() > 0) {
+                                     videoView.setVisibility(View.VISIBLE);
 //                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
 //                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
 //                                    startActivity(intentVideo);
 
-                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+//
+//                                    intent.setDataAndType(Uri.parse(videoUrl), "video/*");
+//
+//                                    startActivity(Intent.createChooser(intent, "Complete action using"));
+                                   // mp= MediaPlayer.create(getContext(),Uri.parse(videoUrl));
+                                   // mediaController.setMediaPlayer((MediaController.MediaPlayerControl) mp);
+                                  //  mp.start();
+                                    videoVisible = true;
+                                    progressDialog.show();
+                                    if(mediaController==null){
+                                    mediaController=new MediaController(getContext());
+                                    mediaController.setAnchorView(videoView);}
+                                    videoView.setMediaController(mediaController);
+                                    videoView.setVideoURI(Uri.parse(videoUrl));
 
-                                    intent.setDataAndType(Uri.parse(videoUrl), "video/*");
 
-                                    startActivity(Intent.createChooser(intent, "Complete action using"));
+                                    videoView.start();
+
+                                   // Toast.makeText(getContext(),"dhfkjds",Toast.LENGTH_LONG).show();
 
                                 }
-                                videoVisible = true;
-                            } else {
+                              //  progressDialog.cancel();
+                            }
+                            else {
                                 videoVisible = false;
                             }
                         }else {
