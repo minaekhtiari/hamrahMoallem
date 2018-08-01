@@ -53,6 +53,8 @@ import classes.tools.TextAndBacks;
 import classes.tools.helpers.RetrofitFactory;
 import classes.tools.helpers.RetrofitFactoryForFileManager;
 import factories.FragmentHelper;
+import fm.jiecao.jcvideoplayer_lib.FullScreenActivity;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -97,7 +99,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     RelativeLayout relativeLayoutImageBack;
     Home_Pager_Page page = new Home_Pager_Page();
     ImageView ivBanner;
-    VideoView videoView;
+    JCVideoPlayer videoView;
     String videoUrl = "";
     String audioUrl = "";
     boolean videoVisible = false;
@@ -168,7 +170,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         ivBanner = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_ImageBanner);
         ivVideoIcon = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_image_videoIcon);
         tvBtnBuy = (TextView) getActivity().findViewById(R.id.fragment_article_btn_buy);
-        videoView=(VideoView)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
+        videoView=(JCVideoPlayer)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
         ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
@@ -220,6 +222,12 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     public void onResume() {
         super.onResume();
 //        checkNewAnswerCount();
+    }
+
+    @Override
+    public void onPause() {
+        JCVideoPlayer.releaseAllVideos();
+        super.onPause();
     }
 
     class TaskLoadContentPage extends AsyncTask<Integer , Void , Home_Pager_Page>{
@@ -377,25 +385,30 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
 //                                    intent.setDataAndType(Uri.parse(videoUrl), "video/*");
 //
 //                                    startActivity(Intent.createChooser(intent, "Complete action using"));
-                                   // mp= MediaPlayer.create(getContext(),Uri.parse(videoUrl));
-                                   // mediaController.setMediaPlayer((MediaController.MediaPlayerControl) mp);
-                                  //  mp.start();
+
                                     videoVisible = true;
-                                    progressDialog.show();
-                                    if(mediaController==null){
-                                    mediaController=new MediaController(getContext());
-                                    mediaController.setAnchorView(videoView);}
-                                    videoView.setMediaController(mediaController);
-                                    videoView.setVideoURI(Uri.parse(videoUrl));
 
+                                    videoView.setUp(String.valueOf(Uri.parse(videoUrl)),"","");
 
-                                    videoView.start();
+//                                     JCVideoPlayer.setGlobleSkin();
+//                                     videoView.setSkin();
+//                                    if(mediaController==null){
+//                                    mediaController=new MediaController(getContext());
+//                                    mediaController.setAnchorView(videoView);}
+//                                    videoView.setMediaController(mediaController);
+//                                    videoView.setVideoURI(Uri.parse(videoUrl));
+//
+//
+//                                    videoView.start();
 
                                    // Toast.makeText(getContext(),"dhfkjds",Toast.LENGTH_LONG).show();
 
                                 }
                               //  progressDialog.cancel();
+
+
                             }
+
                             else {
                                 videoVisible = false;
                             }

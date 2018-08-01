@@ -29,6 +29,7 @@ public class RetrofitFactory {
 
     public static IRetrofit getRetrofitClient(){
         IRetrofit retroClient = RetrofitFactory.getRetrofit().create(IRetrofit.class);
+
         return retroClient;
     }
 }

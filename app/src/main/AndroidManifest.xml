@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="apps.hillavas.com.hamrahdars">
 
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -12,13 +13,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name=".FontSetterOnApllication"
+    tools:replace="android:label"
+    android:name=".FontSetterOnApllication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/titr"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".HOME"
             android:screenOrientation="portrait">
