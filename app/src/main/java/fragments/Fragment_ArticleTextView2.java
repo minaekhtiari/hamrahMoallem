@@ -215,6 +215,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
         checkNewAnswerCount();
     }
 
+
     class TaskLoadContentPage extends AsyncTask<Integer , Void , Home_Pager_Page>{
 
         @Override

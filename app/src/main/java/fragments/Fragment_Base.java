@@ -48,7 +48,7 @@ public class Fragment_Base extends Fragment {
         frameLayoutContent = (FrameLayout) getActivity().findViewById(R.id.fragment_base_content);
         frameLayoutMenu = (FrameLayout) getActivity().findViewById(R.id.fragment_base_menu);
 
-        getVersion();
+     //   getVersion();
         new FragmentHelper(
                 new Fragment_pager(),
                 R.id.fragment_base_content,
@@ -76,7 +76,7 @@ public class Fragment_Base extends Fragment {
                 });
 
     }
-
+//check Version
     private void getVersion() {
    final AlertDialog.Builder dialogversoin =new AlertDialog.Builder(getActivity());
    final int currentversionCode = BuildConfig.VERSION_CODE;

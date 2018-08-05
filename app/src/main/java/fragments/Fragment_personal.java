@@ -195,6 +195,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
                             pn.setSex(sex);
                             new TaskUpdateProfile().execute(pn);
                             dialogeditinfo.hide();
+
                         }
                     });
 

@@ -50,13 +50,22 @@ public class RecyclerView_Adapter_Category extends RecyclerView.Adapter<Recycler
     @Override
     public MVHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.card_category , parent , false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                  CategoryWithParentChild child1= list.get(getItemCount());
+//                EventBus.getDefault().post(child1);
+
+            }
+
+        });
         return new MVHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final MVHolder holder, final int position) {
 
-        final CategoryWithParentChild child = list.get(position);
+        final  CategoryWithParentChild child = list.get(position);
         if(child.isSelected())
             holder.iv.setVisibility(View.VISIBLE);
         holder.tv.setText(child.getName());
@@ -73,7 +82,9 @@ public class RecyclerView_Adapter_Category extends RecyclerView.Adapter<Recycler
         return list.size();
     }
 
-    class MVHolder extends RecyclerView.ViewHolder {
+    class MVHolder extends RecyclerView.ViewHolder
+         //   implements View.OnClickListener
+    {
 
         TextView tv;
         ImageView iv;
@@ -85,7 +96,19 @@ public class RecyclerView_Adapter_Category extends RecyclerView.Adapter<Recycler
             Typeface typeface = Typeface.createFromAsset(context.getAssets(), "fonts/iransans.ttf");
             tv.setTypeface(typeface);
         }
+
+//        @Override
+//        public void onClick(View view) {
+//          Toast.makeText(context,"hiedif",Toast.LENGTH_LONG).show();
+//            if(child.isSelected())
+//              iv.setVisibility(View.VISIBLE);
+//            tv.setText(child.getName());
+//            EventBus.getDefault().post(child);
+//        }
     }
+
+
+
 }
 
 

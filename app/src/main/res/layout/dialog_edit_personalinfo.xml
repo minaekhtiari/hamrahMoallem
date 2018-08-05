@@ -12,6 +12,7 @@
         android:padding="8dp"
         >
         <EditText
+            android:hint="نام"
             android:id="@+id/dialog_edit_personalinfo_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
             android:gravity="right"
             />
         <EditText
+            android:hint="نام خانوادگی"
             android:id="@+id/dialog_edit_personalinfo_family"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
