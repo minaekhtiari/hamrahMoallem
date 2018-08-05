@@ -126,7 +126,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_about)).setOnClickListener(this);
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_message)).setOnClickListener(this);
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_report)).setOnClickListener(this);
-        ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_exitAccount)).setOnClickListener(this);
+      //  ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_exitAccount)).setOnClickListener(this);
         ((LinearLayout)getActivity().findViewById(R.id.personal_linear_addCredit)).setOnClickListener(this);
 
         tv.setText("مشترک گرامی\n" +
@@ -302,10 +302,11 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
 //                ).replace(true);
 //                break;
 //            }
-            case R.id.personal_relative_exitAccount: {
-                getActivity().finish();
-                break;
-            }
+            //خروج
+//            case R.id.personal_relative_exitAccount: {
+//                getActivity().finish();
+//                break;
+//            }
         }
     }
 

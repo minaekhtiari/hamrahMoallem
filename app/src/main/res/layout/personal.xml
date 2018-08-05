@@ -162,6 +162,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:visibility="invisible"
                         android:id="@+id/personal_text_maghta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -446,41 +447,41 @@
                     android:layout_below="@+id/personal_relative_report"
                     android:background="@color/gray_200" />
 
-                <RelativeLayout
-                    android:id="@+id/personal_relative_exitAccount"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/image_line4"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp">
+                <!--<RelativeLayout-->
+                    <!--android:id="@+id/personal_relative_exitAccount"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:layout_below="@id/image_line4"-->
+                    <!--android:paddingLeft="8dp"-->
+                    <!--android:paddingRight="8dp">-->
 
-                    <ImageView
-                        android:id="@+id/image4"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:src="@drawable/power"
-                        android:tint="@color/gray_300" />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/image4"-->
+                        <!--android:layout_width="15dp"-->
+                        <!--android:layout_height="15dp"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_marginLeft="8dp"-->
+                        <!--android:layout_marginRight="8dp"-->
+                        <!--android:src="@drawable/power"-->
+                        <!--android:tint="@color/gray_300" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/image4"
-                        android:text="خروج"
-                        android:textColor="@color/gray_300"
-                        android:textSize="10sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:layout_toLeftOf="@id/image4"-->
+                        <!--android:text="خروج"-->
+                        <!--android:textColor="@color/gray_300"-->
+                        <!--android:textSize="10sp" />-->
 
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/arrow_left"
-                        android:tint="@color/gray_300" />
-                </RelativeLayout>
+                    <!--<ImageView-->
+                        <!--android:layout_width="15dp"-->
+                        <!--android:layout_height="15dp"-->
+                        <!--android:layout_alignParentEnd="true"-->
+                        <!--android:layout_centerVertical="true"-->
+                        <!--android:src="@drawable/arrow_left"-->
+                        <!--android:tint="@color/gray_300" />-->
+                <!--</RelativeLayout>-->
             </RelativeLayout>
 
         </LinearLayout>
