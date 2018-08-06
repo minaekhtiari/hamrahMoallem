@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -36,6 +38,7 @@ public class Fragment_Base extends Fragment {
 
     FrameLayout frameLayoutContent;
     FrameLayout frameLayoutMenu;
+    FloatingActionButton floatingActionButton;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class Fragment_Base extends Fragment {
         super.onActivityCreated(savedInstanceState);
         frameLayoutContent = (FrameLayout) getActivity().findViewById(R.id.fragment_base_content);
         frameLayoutMenu = (FrameLayout) getActivity().findViewById(R.id.fragment_base_menu);
+       floatingActionButton= (FloatingActionButton)getActivity().findViewById(R.id.fragment_messages_fab_menu);
 
      //   getVersion();
         new FragmentHelper(
@@ -67,11 +71,14 @@ public class Fragment_Base extends Fragment {
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(frameLayoutMenu.getVisibility() == View.INVISIBLE)
+                        if(frameLayoutMenu.getVisibility() == View.INVISIBLE){
                             frameLayoutMenu.setVisibility(View.VISIBLE);
-                        else
+                      //  floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#33691E")));
+                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_clear_black));}
+                        else {
                             frameLayoutMenu.setVisibility(View.INVISIBLE);
-
+                            floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.filter_outline));
+                        }
                     }
                 });
 

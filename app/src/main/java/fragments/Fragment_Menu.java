@@ -3,6 +3,8 @@ package fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -135,7 +137,7 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener{
         relativeSendToContent = (RelativeLayout) getActivity().findViewById(R.id.activity_menu_relative_send);
         recyclerViewCategories = (RecyclerView)getActivity().findViewById(R.id.activity_menu_recycler_categoris);
         recyclerViewContents = (RecyclerView)getActivity().findViewById(R.id.activity_menu_recycler_contents);
-        ivGoToContent = (ImageView) getActivity().findViewById(R.id.activity_menu_image_send);
+       // ivGoToContent = (ImageView) getActivity().findViewById(R.id.activity_menu_image_send);
         linearLayoutManagerCategories = new LinearLayoutManager(getActivity());
         linearLayoutManagerCategories.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewCategories.setLayoutManager(linearLayoutManagerCategories);
@@ -156,15 +158,17 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener{
         selectedCategory = getActivity().getIntent().getIntExtra("CATEGORY_ID_SELECTED",0);
 
         new TaskLoadLevels().execute();
-
+        fabCategorySelect.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#33691E")));
+        //fabCategorySelect.setImageDrawable(getResources().getDrawable(R.drawable.ic_send_black));
         ((TextView)getActivity().findViewById(R.id.card_category_text)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                RecyclerView_Adapter_CategoryTitrs recyclerView_adapter_categoryTitrs = new RecyclerView_Adapter_CategoryTitrs(getActivity(), categoriesList, -1);
+                              RecyclerView_Adapter_CategoryTitrs recyclerView_adapter_categoryTitrs =
+                                      new RecyclerView_Adapter_CategoryTitrs(getActivity(), categoriesList, -1);
                 recyclerViewCategories.setAdapter(recyclerView_adapter_categoryTitrs);
 
                 if(fabCategorySelect.getVisibility() == View.VISIBLE) {
+
                     fabCategorySelect.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.to_down_50));
                     fabCategorySelect.setVisibility(View.INVISIBLE);
                 }

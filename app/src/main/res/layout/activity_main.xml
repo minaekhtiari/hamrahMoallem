@@ -4,6 +4,7 @@
     android:id="@+id/activity_main_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     android:background="@drawable/art2">
     <RelativeLayout
         android:layout_width="match_parent"
