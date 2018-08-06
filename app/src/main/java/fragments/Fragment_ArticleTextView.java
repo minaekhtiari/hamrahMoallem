@@ -173,7 +173,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         videoView=(JCVideoPlayer)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
         ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("لطفا منتظر بمانید...");
         tvBtnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -231,12 +231,12 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     }
 
     class TaskLoadContentPage extends AsyncTask<Integer , Void , Home_Pager_Page>{
-
         @Override
         protected Home_Pager_Page doInBackground(Integer... params) {
+
             try {
                 if (RetrofitFactory.getRetrofitClient().getContentById(token,params[0]).execute().body().isIsSuccessfull())
-                    content = RetrofitFactory.getRetrofitClient().getContentById(token,params[0]).execute().body().getResult();
+                 content = RetrofitFactory.getRetrofitClient().getContentById(token,params[0]).execute().body().getResult();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -274,6 +274,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         protected void onPostExecute(Home_Pager_Page page) {
             super.onPostExecute(page);
             new TaskLoadContent().execute(conentId);
+            progressDialog.cancel();
             tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");
@@ -282,6 +283,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             tvDateYear.setText(page.getDateYearName() + "");
             String price = "";
             int color = 0;
+
             if(content.isIsFree()){
                 tvBtnBuy.setVisibility(View.INVISIBLE);
                 lock = false;
@@ -404,7 +406,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
                                    // Toast.makeText(getContext(),"dhfkjds",Toast.LENGTH_LONG).show();
 
                                 }
-                              //  progressDialog.cancel();
+
 
 
                             }
@@ -432,6 +434,11 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
                     R.id.frameLayout_bottom_bar,
                     getActivity().getSupportFragmentManager()
             ).replace(false);
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.show();
         }
     }
 

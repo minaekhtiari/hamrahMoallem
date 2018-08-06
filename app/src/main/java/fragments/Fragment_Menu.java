@@ -392,6 +392,9 @@ public class Fragment_Menu extends Fragment implements View.OnClickListener{
             try {
                 if (RetrofitFactory.getRetrofitClient().getLevels(token).execute().body().isIsSuccessfull())
                     levels = RetrofitFactory.getRetrofitClient().getLevels(token).execute().body().getResult();
+              //  else
+//                    if (levels.size()==0);
+//                    levels=null;
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -307,8 +307,9 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
                     if (RetrofitFactory.getRetrofitClient().getContents(token, params[0], 1, rowNumbers).execute().body().isIsSuccessfull())
                         //token0 : "CD0D144D-2C5F-4516-9600-BCE20907C563"
                         records = RetrofitFactory.getRetrofitClient().getContents(token, params[0], 1, rowNumbers).execute().body().getResult().getRecords();
-                    else
-                        records = null;
+//                    else
+//                        if(records.size()==0){
+//                        records = null;}
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -368,51 +369,51 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
                 tvTitr.setVisibility(View.INVISIBLE);
         }
     }
-    class TaskLoadProfileInfo extends AsyncTask<Void,Void,ProfileInfo> {
-        List<Record> records = new ArrayList<>();
-        @Override
-        protected ProfileInfo doInBackground(Void... params) {
-            ProfileInfo profileInfo=  new ProfileInfo();
-            try {
-                if (RetrofitFactory.getRetrofitClient().getProfileInfo(token).execute().body().isIsSuccessfull())
-                        profileInfo = RetrofitFactory.getRetrofitClient().getProfileInfo(token).execute().body().getResult();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return profileInfo;
-        }
-
-        @Override
-        protected void onPostExecute(ProfileInfo profileInfo) {
-            super.onPostExecute(profileInfo);
-            profileInformation = profileInfo;
-            if(profileInfo != null){
-                if(!profileInfo.isIsServiceOn()){
-//                    linearLayoutStatus.setVisibility(View.VISIBLE);
-//                    linearLayoutStatusHeader.setVisibility(View.VISIBLE);
-//                    tvLineStatus.setVisibility(View.VISIBLE);
-                }else {
-//                    linearLayoutStatus.setVisibility(View.INVISIBLE);
-//                    linearLayoutStatusHeader.setVisibility(View.INVISIBLE);
-//                    linearLayoutStatus.getLayoutParams().height = 1;
-//                    linearLayoutStatusHeader.getLayoutParams().height = 1;
-//                    linearLayoutStatus.requestLayout();
-//                    linearLayoutStatusHeader.requestLayout();
-//                    tvLineStatus.setVisibility(View.INVISIBLE);
-                }
-//                tvNavCredit.setText(" اعتبار : "+ profileInfo.getCredit() + " ریال ");
-//                tvNavNameAndFamily.setText(profileInfo.getFirstName() + " " + profileInfo.getLastName());
-//                sharedPreferencesHome.edit().putInt("CREDIT" , profileInfo.getCredit()).commit();
+//    class TaskLoadProfileInfo extends AsyncTask<Void,Void,ProfileInfo> {
+//        List<Record> records = new ArrayList<>();
+//        @Override
+//        protected ProfileInfo doInBackground(Void... params) {
+//            ProfileInfo profileInfo=  new ProfileInfo();
+//            try {
+//                if (RetrofitFactory.getRetrofitClient().getProfileInfo(token).execute().body().isIsSuccessfull())
+//                        profileInfo = RetrofitFactory.getRetrofitClient().getProfileInfo(token).execute().body().getResult();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return profileInfo;
+//        }
 //
-//                relativeLayoutImageMenu.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        drawerLayout.openDrawer(GravityCompat.START);
-//                    }
-//                });
-            }
-        }
-    }
+//        @Override
+//        protected void onPostExecute(ProfileInfo profileInfo) {
+//            super.onPostExecute(profileInfo);
+//            profileInformation = profileInfo;
+//            if(profileInfo != null){
+//                if(!profileInfo.isIsServiceOn()){
+////                    linearLayoutStatus.setVisibility(View.VISIBLE);
+////                    linearLayoutStatusHeader.setVisibility(View.VISIBLE);
+////                    tvLineStatus.setVisibility(View.VISIBLE);
+//                }else {
+////                    linearLayoutStatus.setVisibility(View.INVISIBLE);
+////                    linearLayoutStatusHeader.setVisibility(View.INVISIBLE);
+////                    linearLayoutStatus.getLayoutParams().height = 1;
+////                    linearLayoutStatusHeader.getLayoutParams().height = 1;
+////                    linearLayoutStatus.requestLayout();
+////                    linearLayoutStatusHeader.requestLayout();
+////                    tvLineStatus.setVisibility(View.INVISIBLE);
+//                }
+////                tvNavCredit.setText(" اعتبار : "+ profileInfo.getCredit() + " ریال ");
+////                tvNavNameAndFamily.setText(profileInfo.getFirstName() + " " + profileInfo.getLastName());
+////                sharedPreferencesHome.edit().putInt("CREDIT" , profileInfo.getCredit()).commit();
+////
+////                relativeLayoutImageMenu.setOnClickListener(new View.OnClickListener() {
+////                    @Override
+////                    public void onClick(View v) {
+////                        drawerLayout.openDrawer(GravityCompat.START);
+////                    }
+////                });
+//            }
+//        }
+//    }
 
     @Override
     public void onClick(View v) {
