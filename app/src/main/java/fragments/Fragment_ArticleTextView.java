@@ -187,7 +187,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             }
             if(getArguments().containsKey("CATEGORY_ID")){
                 categoryId = getArguments().getInt("CATEGORY_ID");
-                sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , categoryId).commit();
+           //     sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , categoryId).commit();
             }
             if(getArguments().containsKey("POSITION")){
                 position = getArguments().getInt("POSITION");
