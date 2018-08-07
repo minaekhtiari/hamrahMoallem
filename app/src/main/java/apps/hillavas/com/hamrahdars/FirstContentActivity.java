@@ -220,11 +220,11 @@ public class FirstContentActivity extends AppCompatActivity {
 
         Device device=new Device();
         AndroidUtils androidUtils=new AndroidUtils(this);
-        device.setManufacturer(String.valueOf(androidUtils.getManufacturer()));
+        device.setManufacture(String.valueOf(androidUtils.getManufacturer()));
         device.setCpu(androidUtils.getCpu());
         device.setOperator(androidUtils.getSimOperator());
         device.setUUID(androidUtils.getUUID());
-        device.setApiVersion(androidUtils.getAndroidVersionCode());
+        device.setApiVersion(String.valueOf(androidUtils.getAndroidVersionCode()));
         device.setOsVersion(androidUtils.getAndroidVersionName());
         device.setDpi(androidUtils.getDpi());
         device.setResolotion(androidUtils.getResolution());
@@ -234,6 +234,7 @@ public class FirstContentActivity extends AppCompatActivity {
         device.setHardware(androidUtils.getHardware());
         device.setNetworkName(androidUtils.getModelName());
         device.setNetworkType(androidUtils.getNetworkType());
+        device.setOsName("Android");
 
 
 

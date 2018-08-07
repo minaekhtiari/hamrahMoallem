@@ -52,7 +52,7 @@ public class Fragment_Base extends Fragment {
         frameLayoutMenu = (FrameLayout) getActivity().findViewById(R.id.fragment_base_menu);
        floatingActionButton= (FloatingActionButton)getActivity().findViewById(R.id.fragment_messages_fab_menu);
 
-     //   getVersion();
+        getVersion();
         new FragmentHelper(
                 new Fragment_pager(),
                 R.id.fragment_base_content,
@@ -103,8 +103,9 @@ public class Fragment_Base extends Fragment {
                    };
 
 
-                  dialogversoin.setMessage("نسخه جدید");
-                  dialogversoin.setPositiveButton("بی خیال", new DialogInterface.OnClickListener() {
+                  dialogversoin.setMessage(R.string.versionDialog);
+                 // dialogversoin.setTitle("نسخه جدید");
+                  dialogversoin.setPositiveButton(R.string.versionCancel, new DialogInterface.OnClickListener() {
 
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -114,12 +115,12 @@ public class Fragment_Base extends Fragment {
                         }
                     });
 
-                    dialogversoin.setNegativeButton("به روز رسانی", new DialogInterface.OnClickListener() {
+                    dialogversoin.setNegativeButton(R.string.versionUpdate, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             String url=response.body().getResult().getDownloadLink();
                             Intent intent= new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("https://"+url));
+                            intent.setData(Uri.parse(url));
                             startActivity(intent);
                         }
                     });

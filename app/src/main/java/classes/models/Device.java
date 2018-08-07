@@ -1,141 +1,173 @@
 package classes.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Device {
-    private String mDpi;
-    private String mResolotion;
-    private String mManufacturer;
-    private String mModelName;
-    private String mOsVersion;
-    private String mOsName="Android";
-    private String mProductName;
-    private Integer mApiVersion;
-    private String mUUID;
-    private String mNetworkName;
-    private String mNetworkType;
-    private String mHardware;
-    private String mCpu;
-    private String mRam;
-    private String mOperator;
+    @SerializedName("UUID")
+    @Expose
+    private String uUID;
+    @SerializedName("Operator")
+    @Expose
+    private String operator;
+    @SerializedName("OsName")
+    @Expose
+    private String osName;
+    @SerializedName("OsVersion")
+    @Expose
+    private String osVersion;
+    @SerializedName("ApiVersion")
+    @Expose
+    private String apiVersion;
+    @SerializedName("Dpi")
+    @Expose
+    private String dpi;
+    @SerializedName("Resolotion")
+    @Expose
+    private String resolotion;
+    @SerializedName("Manufacture")
+    @Expose
+    private String manufacture;
+    @SerializedName("ProductName")
+    @Expose
+    private String productName;
+    @SerializedName("ModelName")
+    @Expose
+    private String modelName;
+    @SerializedName("NetworkType")
+    @Expose
+    private String networkType;
+    @SerializedName("NetworkName")
+    @Expose
+    private String networkName;
+    @SerializedName("Hardware")
+    @Expose
+    private String hardware;
+    @SerializedName("Cpu")
+    @Expose
+    private String cpu;
+    @SerializedName("Ram")
+    @Expose
+    private String ram;
+
+    public String getUUID() {
+        return uUID;
+    }
+
+    public void setUUID(String uUID) {
+        this.uUID = uUID;
+    }
 
     public String getOperator() {
-        return mOperator;
+        return operator;
     }
 
-    public void setOperator(String mOperator) {
-        this.mOperator = mOperator;
-    }
-
-    public String getDpi() {
-        return mDpi;
-    }
-
-    public void setDpi(String mDpi) {
-        this.mDpi = mDpi;
-    }
-
-    public String getResolotion() {
-        return mResolotion;
-    }
-
-    public void setResolotion(String mResolotion) {
-        this.mResolotion = mResolotion;
-    }
-
-    public String getManufacturer() {
-        return mManufacturer;
-    }
-
-    public void setManufacturer(String mManufacturer) {
-        this.mManufacturer = mManufacturer;
-    }
-
-    public String getModelName() {
-        return mModelName;
-    }
-
-    public void setModelName(String mModelName) {
-        this.mModelName = mModelName;
-    }
-
-    public String getOsVersion() {
-        return mOsVersion;
-    }
-
-    public void setOsVersion(String mOsVersion) {
-        this.mOsVersion = mOsVersion;
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
     public String getOsName() {
-        return mOsName;
+        return osName;
     }
 
-    public void setOsName(String mOsName) {
-        this.mOsName = mOsName;
+    public void setOsName(String osName) {
+        this.osName = osName;
+    }
+
+    public String getOsVersion() {
+        return osVersion;
+    }
+
+    public void setOsVersion(String osVersion) {
+        this.osVersion = osVersion;
+    }
+
+    public String getApiVersion() {
+        return apiVersion;
+    }
+
+    public void setApiVersion(String apiVersion) {
+        this.apiVersion = apiVersion;
+    }
+
+    public String getDpi() {
+        return dpi;
+    }
+
+    public void setDpi(String dpi) {
+        this.dpi = dpi;
+    }
+
+    public String getResolotion() {
+        return resolotion;
+    }
+
+    public void setResolotion(String resolotion) {
+        this.resolotion = resolotion;
+    }
+
+    public String getManufacture() {
+        return manufacture;
+    }
+
+    public void setManufacture(String manufacture) {
+        this.manufacture = manufacture;
     }
 
     public String getProductName() {
-        return mProductName;
+        return productName;
     }
 
-    public void setProductName(String mProductName) {
-        this.mProductName = mProductName;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public Integer getApiVersion() {
-        return mApiVersion;
+    public String getModelName() {
+        return modelName;
     }
 
-    public void setApiVersion(Integer mApiVersion) {
-        this.mApiVersion = mApiVersion;
-    }
-
-    public String getUUID() {
-        return mUUID;
-    }
-
-    public void setUUID(String mUUID) {
-        this.mUUID = mUUID;
-    }
-
-    public String getNetworkName() {
-        return mNetworkName;
-    }
-
-    public void setNetworkName(String mNetworkName) {
-        this.mNetworkName = mNetworkName;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public String getNetworkType() {
-        return mNetworkType;
+        return networkType;
     }
 
-    public void setNetworkType(String mNetworkType) {
-        this.mNetworkType = mNetworkType;
+    public void setNetworkType(String networkType) {
+        this.networkType = networkType;
+    }
+
+    public String getNetworkName() {
+        return networkName;
+    }
+
+    public void setNetworkName(String networkName) {
+        this.networkName = networkName;
     }
 
     public String getHardware() {
-        return mHardware;
+        return hardware;
     }
 
-    public void setHardware(String mHardware) {
-        this.mHardware = mHardware;
+    public void setHardware(String hardware) {
+        this.hardware = hardware;
     }
 
     public String getCpu() {
-        return mCpu;
+        return cpu;
     }
 
-    public void setCpu(String mCpu) {
-        this.mCpu = mCpu;
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
     }
 
     public String getRam() {
-        return mRam;
+        return ram;
     }
 
-    public void setRam(String mRam) {
-        this.mRam = mRam;
+    public void setRam(String ram) {
+        this.ram = ram;
     }
-
 
 }

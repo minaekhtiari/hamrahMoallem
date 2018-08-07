@@ -41,8 +41,9 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/back2" />
+                    android:scaleType="fitXY"/>
+                    <!--android:src="@drawable/back2" -->
+
 
                 <ImageView
                     android:id="@+id/fragment_article_collaps_image_videoIcon"

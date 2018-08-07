@@ -273,8 +273,12 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         @Override
         protected void onPostExecute(Home_Pager_Page page) {
             super.onPostExecute(page);
+
+            String dayNumber= page.getDateDayNumber()+"";
+            if(dayNumber!=null){
+                progressDialog.cancel();
+            }
             new TaskLoadContent().execute(conentId);
-            progressDialog.cancel();
             tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");

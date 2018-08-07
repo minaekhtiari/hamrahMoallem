@@ -123,6 +123,9 @@
     <string name="showCase_filter"><font color="#607d8b" size="6">"برای تغییر مقطع تحصیلی و دروس بر روی کلید فیلتر کلیک نمائید"</font></string>
     <string name="next"><font size="10">بعدی</font></string>
     <string name="waiting"><font size="10"> در حال بارگذاری ...</font></string>
+    <string name="versionDialog"> نسخه جدید\n \n<font size="14">دریافت نسخه جدید همراه معلم</font></string>
+    <string name="versionCancel"><font color="#014270">بی خیال</font></string>
+    <string name="versionUpdate"><font color="#014270">به روز رسانی</font></string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
