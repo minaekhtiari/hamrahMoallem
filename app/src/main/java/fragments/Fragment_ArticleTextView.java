@@ -117,7 +117,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     TextView tvBackToolbar;
     TextView tvPrice;
     String imageFileId = null;
-    TextView tvBtnBuy;
+   public TextView tvBtnBuy;
     boolean lock = false;
     int conentId = 0;
     int categoryId = 0;
@@ -275,19 +275,28 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             super.onPostExecute(page);
 
             String dayNumber= page.getDateDayNumber()+"";
-            if(dayNumber!=null){
+            if(dayNumber!=null ){
                 progressDialog.cancel();
             }
             new TaskLoadContent().execute(conentId);
-            tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());
+            if(page.getTxtText()!=null){
+           tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());}
+           else {
+                tvBtnBuy.setVisibility(View.INVISIBLE);
+                tvTextTitle.setText("مقطع تحصیلی");
+            }
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");
             tvDateDay.setText(page.getDateDayNumber() + "");
-            tvDateMounth.setText(page.getDateMounthName() + "");
-            tvDateYear.setText(page.getDateYearName() + "");
+            if (page.getDateMounthName()!=null){
+            tvDateMounth.setText(page.getDateMounthName() + "");}
+            else {tvDateMounth.setText("مرداد");}
+            if (page.getDateYearName()!=null){
+            tvDateYear.setText(page.getDateYearName() + "");}
+            else {tvDateYear.setText("1396");}
             String price = "";
             int color = 0;
-
+           if(content!=null)
             if(content.isIsFree()){
                 tvBtnBuy.setVisibility(View.INVISIBLE);
                 lock = false;
@@ -368,8 +377,12 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
                     }
                 }
             });
-
-            jText.setText(Html.fromHtml(page.getDescription()).toString());
+           // if(page!=null)
+            if(page.getDescription()!=null){
+           jText.setText(Html.fromHtml(page.getDescription()).toString());}
+           else{
+                jText.setVisibility(View.INVISIBLE);
+            }
             jText.setLineSpacing(80);
             Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/iransans.ttf");
             jText.setTypeFace(tf);
@@ -444,6 +457,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             super.onPreExecute();
             progressDialog.show();
         }
+
+
+
     }
 
     private void gotoBuy(){
@@ -481,6 +497,8 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             try {
                 if (RetrofitFactory.getRetrofitClient().getContentById(token, params[0]).execute().body().isIsSuccessfull()) {
                     attaches = RetrofitFactory.getRetrofitClient().getContentById(token, params[0]).execute().body().getResult().getAttachedFiles();
+                }else{
+                    Toast.makeText(getContext(),"net is off",Toast.LENGTH_LONG).show();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -491,7 +509,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         @Override
         protected void onPostExecute(List<AttachedFile> attachedFiles) {
             super.onPostExecute(attachedFiles);
-
+            if(attachedFiles != null )
             for (AttachedFile attachedFile : attachedFiles) {
                 if (attachedFile.getFileType() == 1 && attachedFile.getContentType().equals("HeaderImage")) {
                     RetrofitFactoryForFileManager.getRetrofitClient().getFiles(attachedFile.getFileID(), 1).enqueue(new Callback<FileGiver>() {

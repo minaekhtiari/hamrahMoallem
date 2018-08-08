@@ -107,6 +107,7 @@
 
             >
             <TextView
+                android:text="مقطع تحصیلی"
                 android:id="@+id/fragment_article_textTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,6 +175,7 @@
                     >
 
                     <TextView
+                        android:text="11"
                         android:id="@+id/fragment_articel_text_txtDateDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -183,6 +185,7 @@
                         android:layout_alignParentRight="true"
                         />
                     <TextView
+                        android:text="مرداد"
                         android:id="@+id/fragment_articel_text_txtDateMounth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -193,6 +196,7 @@
                         />
 
                     <TextView
+                        android:text="1397"
                         android:id="@+id/fragment_articel_text_txtDateYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
