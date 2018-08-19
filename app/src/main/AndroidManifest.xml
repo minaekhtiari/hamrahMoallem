@@ -13,15 +13,14 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-    tools:replace="android:label"
-    android:name=".FontSetterOnApllication"
+        android:name=".FontSetterOnApllication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/titr"
         android:largeHeap="true"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme"
+        tools:replace="label"
+        >
         <activity
             android:name=".HOME"
             android:screenOrientation="portrait">
@@ -69,21 +68,30 @@
         <activity
             android:name=".DetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".FirstContentActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ConsultantActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ChangeStateActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".NewsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".BuyReportActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Buy_Credit_Activity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".FirstContentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ConsultantActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChangeStateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BuyReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Buy_Credit_Activity"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="32384587bd1a5d0cfcdb12166566ce8d161e7ff8" />
+
+        <activity android:name=".IntroActivity"></activity>
     </application>
 
 </manifest>

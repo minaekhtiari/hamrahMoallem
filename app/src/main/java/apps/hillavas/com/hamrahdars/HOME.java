@@ -2,6 +2,7 @@ package apps.hillavas.com.hamrahdars;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -80,9 +81,13 @@ public class HOME extends AppCompatActivity {
 
         if(token != null && token.length() > 0)
             transaction.replace(R.id.frameLayout_base , new Fragment_Splash()).commit();
-        else
-            transaction.replace(R.id.frameLayout_base , new Fragment_RegisterJustMobile()).commit();
+        else {
+            //intro page
+            Intent intent = new Intent(HOME.this, IntroActivity.class);
+            startActivity(intent);
 
+            transaction.replace(R.id.frameLayout_base, new Fragment_RegisterJustMobile()).commit();
+        }
     }
 
     @Override

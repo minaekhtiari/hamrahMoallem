@@ -1,6 +1,7 @@
 package fragments;
 
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -24,13 +26,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 
@@ -53,7 +57,6 @@ import classes.tools.TextAndBacks;
 import classes.tools.helpers.RetrofitFactory;
 import classes.tools.helpers.RetrofitFactoryForFileManager;
 import factories.FragmentHelper;
-import fm.jiecao.jcvideoplayer_lib.FullScreenActivity;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -284,6 +287,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
            else {
                 tvBtnBuy.setVisibility(View.INVISIBLE);
                 tvTextTitle.setText("مقطع تحصیلی");
+                dialogConnectionFailed();
             }
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");
@@ -641,6 +645,17 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         new TaskLoadContentPage().execute(conentId);
     }
 
+     private void dialogConnectionFailed(){
+         final AppCompatDialog dialogFilter = new AppCompatDialog(getContext());
+         dialogFilter.setContentView(R.layout.dialog_connection_failed);
+         final Button retry = (Button)
+                 dialogFilter.findViewById(R.id.dialog_connection_failed_retry);
 
+         ViewGroup LayoutRoot = (ViewGroup)
+                 dialogFilter.findViewById(R.id.dialog_connection_failed_root);
+         @SuppressLint("ResourceType") Animation bottomUp = AnimationUtils.loadAnimation(getContext(), R.animator.fade_in);
+         LayoutRoot.startAnimation(bottomUp);
+
+     }
 }
 
