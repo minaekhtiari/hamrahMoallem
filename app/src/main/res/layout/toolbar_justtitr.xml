@@ -6,6 +6,7 @@
     >
 
     <TextView
+        android:text="text"
         android:id="@+id/toolbar_justtitr_text_titr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

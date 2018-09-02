@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +34,9 @@ import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import com.appunite.appunitevideoplayer.PlayerActivity;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
@@ -57,7 +58,7 @@ import classes.tools.TextAndBacks;
 import classes.tools.helpers.RetrofitFactory;
 import classes.tools.helpers.RetrofitFactoryForFileManager;
 import factories.FragmentHelper;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -102,7 +103,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     RelativeLayout relativeLayoutImageBack;
     Home_Pager_Page page = new Home_Pager_Page();
     ImageView ivBanner;
-    JCVideoPlayer videoView;
+   VideoView videoView;
+  // MxVideoPlayerWidget videoPlayerWidget;
+
     String videoUrl = "";
     String audioUrl = "";
     boolean videoVisible = false;
@@ -114,9 +117,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
 
     TextView tvLikeCount;
     TextView tvViewCount;
-    TextView tvDateYear;
-    TextView tvDateMounth;
-    TextView tvDateDay;
+//    TextView tvDateYear;
+//    TextView tvDateMounth;
+//    TextView tvDateDay;
     TextView tvBackToolbar;
     TextView tvPrice;
     String imageFileId = null;
@@ -129,7 +132,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
     public MediaPlayer mp;
     public MediaController mediaController;
     ProgressDialog progressDialog;
-
+    String title;
 
 
     @Nullable
@@ -158,9 +161,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         relativeLayoutToolbarBack = (RelativeLayout) getActivity().findViewById(R.id.toolbar_all_image_back);
         tvLikeCount = (TextView) getActivity().findViewById(R.id.fargment_articel_text_txtLikeCount);
         tvViewCount = (TextView) getActivity().findViewById(R.id.fargment_articel_text_txtViewCount);
-        tvDateYear = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateYear);
-        tvDateMounth = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateMounth);
-        tvDateDay = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateDay);
+//        tvDateYear = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateYear);
+//        tvDateMounth = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateMounth);
+//        tvDateDay = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateDay);
         tvBackToolbar = (TextView) getActivity().findViewById(R.id.fragment_article_text_tvBackActionBar);
         tvBackToolbar.setAlpha(0.5f);
         appBarLayout = (AppBarLayout) getActivity().findViewById(R.id.fragment_article_appbar);
@@ -173,7 +176,12 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
         ivBanner = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_ImageBanner);
         ivVideoIcon = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_image_videoIcon);
         tvBtnBuy = (TextView) getActivity().findViewById(R.id.fragment_article_btn_buy);
-        videoView=(JCVideoPlayer)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
+
+
+       videoView=(VideoView) getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
+      // videoPlayerWidget = (MxVideoPlayerWidget)getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
+
+
         ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("لطفا منتظر بمانید...");
@@ -229,9 +237,14 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
 
     @Override
     public void onPause() {
-        JCVideoPlayer.releaseAllVideos();
+      //  JCVideoPlayer.releaseAllVideos();
+     //   videoPlayerWidget.releaseAllVideos();
+
         super.onPause();
     }
+
+
+
 
     class TaskLoadContentPage extends AsyncTask<Integer , Void , Home_Pager_Page>{
         @Override
@@ -283,7 +296,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             }
             new TaskLoadContent().execute(conentId);
             if(page.getTxtText()!=null){
-           tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());}
+           tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());
+            title=Html.fromHtml(page.getTxtText()).toString();
+            }
            else {
                 tvBtnBuy.setVisibility(View.INVISIBLE);
                 tvTextTitle.setText("مقطع تحصیلی");
@@ -291,13 +306,13 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             }
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");
-            tvDateDay.setText(page.getDateDayNumber() + "");
-            if (page.getDateMounthName()!=null){
-            tvDateMounth.setText(page.getDateMounthName() + "");}
-            else {tvDateMounth.setText("مرداد");}
-            if (page.getDateYearName()!=null){
-            tvDateYear.setText(page.getDateYearName() + "");}
-            else {tvDateYear.setText("1396");}
+          //  tvDateDay.setText(page.getDateDayNumber() + "");
+//            if (page.getDateMounthName()!=null){
+//            tvDateMounth.setText(page.getDateMounthName() + "");}
+//            else {tvDateMounth.setText("مرداد");}
+//            if (page.getDateYearName()!=null){
+//            tvDateYear.setText(page.getDateYearName() + "");}
+//            else {tvDateYear.setText("1396");}
             String price = "";
             int color = 0;
            if(content!=null)
@@ -336,6 +351,8 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             relativeLayoutImageBack.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
                     getActivity().onBackPressed();
                 }
             });
@@ -398,7 +415,9 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
                         if(!lock) {
                             if (!videoVisible) {
                                 if (videoUrl.length() > 0) {
-                                     videoView.setVisibility(View.VISIBLE);
+                                  videoView.setVisibility(View.VISIBLE);
+                                   // videoPlayerWidget.setVisibility(View.VISIBLE);
+
 //                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
 //                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
 //                                    startActivity(intentVideo);
@@ -411,7 +430,14 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
 
                                     videoVisible = true;
 
-                                    videoView.setUp(String.valueOf(Uri.parse(videoUrl)),"","");
+                              //      videoView.setUp(videoUrl,"","");
+
+                                //    videoPlayerWidget.startPlay(videoUrl, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "fkkjjjjjjjjj");
+                                    startActivity(PlayerActivity.getVideoPlayerIntent(getContext(),
+
+                                                    videoUrl,
+                                            title));
+                                    videoView.setVisibility(View.INVISIBLE);
 
 //                                     JCVideoPlayer.setGlobleSkin();
 //                                     videoView.setSkin();
@@ -461,7 +487,6 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             super.onPreExecute();
             progressDialog.show();
         }
-
 
 
     }
@@ -598,7 +623,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
             if(str != null && str.length() > 0) {
                 if (str.equals("YES")) {
                     //yes
-                    sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , categoryId).commit();
+                   // sharedPreferencesHome.edit().putInt(LAST_CATEGORYID_SELECTED , categoryId).commit();
                     sharedPreferencesHome.edit().putBoolean("BUY" , true).commit();
                     sharedPreferencesHome.edit().putInt("BUY_POSITION" , position).commit();
                     sharedPreferencesHome.edit().putInt("CREDIT" , sharedPreferencesHome.getInt("CREDIT" , 0) - content.getPrice()).commit();
@@ -657,5 +682,7 @@ public class Fragment_ArticleTextView extends Fragment implements View.OnClickLi
          LayoutRoot.startAnimation(bottomUp);
 
      }
+
+
 }
 

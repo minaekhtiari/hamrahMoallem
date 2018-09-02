@@ -36,16 +36,18 @@
             android:background="@drawable/bg_white_shadow_gray"
             android:layout_below="@+id/relative_toolbar"
             >
+
             <TextView
                 android:id="@+id/fragment_messaging_voice_new_text_subject"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="@string/subject"
-                android:textColor="@color/gray_500"
-                android:textSize="14sp"
+                android:layout_above="@+id/textBack"
+                android:layout_alignEnd="@+id/textBack"
                 android:gravity="center"
+                android:text="@string/subject"
 
-                />
+                android:textColor="@color/gray_500"
+                android:textSize="14sp" />
             <EditText
                 android:id="@+id/fragment_messaging_voice_new_edit_subject"
                 android:layout_width="match_parent"
@@ -65,16 +67,17 @@
                 android:background="@color/gray_200"
                 android:layout_below="@+id/fragment_messaging_voice_new_edit_subject"
                 />
+
             <TextView
                 android:id="@+id/fragment_messaging_text_new_text_body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/fragment_messaging_voice_new_text_subject"
+                android:layout_marginTop="74dp"
                 android:text="متن : "
                 android:textColor="@color/gray_500"
-                android:textSize="14sp"
-                android:layout_below="@+id/textBack"
-                android:layout_marginTop="16dp"
-                />
+                android:textSize="14sp" />
             <EditText
                 android:id="@+id/fragment_messaging_text_new_edit_body"
                 android:layout_width="match_parent"
@@ -135,10 +138,11 @@
                 android:id="@+id/fragment_messaging_text_new_text_textLength"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/gray_700"
+                android:layout_marginRight="0dp"
+                android:layout_toLeftOf="@+id/fragment_messaging_voice_text_recordedTimeDot"
                 android:text="0"
-                android:layout_toLeftOf="@+id/fragment_messaging_voice_text_recordedTimeDot"/>
+                android:textColor="@color/gray_700"
+                android:textSize="12sp" />
         </RelativeLayout>
 
     </RelativeLayout>

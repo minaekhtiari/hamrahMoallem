@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
     tools:context="apps.hillavas.com.hamrahdars.MenuActivity">
 
     <TextView
@@ -52,7 +51,19 @@
             android:background="@color/gray_200"
 
             >
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_menu_recycler_contents"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fargment_home_toolbar"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp">
+
+            </android.support.v7.widget.RecyclerView>
             <LinearLayout
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -69,27 +80,19 @@
                     android:text="مقطع"
                     android:background="@drawable/test1"
                     />
+
                 <android.support.v7.widget.RecyclerView
+
                     android:id="@+id/activity_menu_recycler_categoris"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
                     android:background="@drawable/test2"
-                    >
+                    android:visibility="visible">
+
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/activity_menu_recycler_contents"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/fargment_home_toolbar"
-                android:layout_weight="2"
-                android:background="@color/white"
-                android:paddingLeft="4dp"
-                android:paddingRight="4dp"
-                >
-            </android.support.v7.widget.RecyclerView>
+
         </LinearLayout>
 
 
@@ -98,7 +101,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:visibility="invisible"
             >
             <ImageView
@@ -121,7 +124,7 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="16dp"
             android:src="@drawable/ic_back_white"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             android:visibility="invisible"
             android:tint="@color/white"
             />

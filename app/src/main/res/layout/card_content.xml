@@ -29,6 +29,7 @@
             android:paddingRight="16dp"
             >
             <TextView
+                android:text="text"
                 android:id="@+id/content_text_titr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

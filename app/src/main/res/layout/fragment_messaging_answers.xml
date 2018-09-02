@@ -9,7 +9,6 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     android:background="@color/white"
-    android:layoutDirection="rtl"
     >
 
     <RelativeLayout
@@ -70,6 +69,7 @@
                             android:layout_marginRight="8dp"
                             >
                             <ImageView
+                                android:layout_alignParentRight="true"
                                 android:id="@+id/imageTitleIcon"
                                 android:layout_width="20sp"
                                 android:layout_height="20dp"
@@ -92,7 +92,7 @@
                                 android:id="@+id/fragment_messaging_answer_image_play"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentStart="true"
                                 android:src="@drawable/play_blue"
                                 android:visibility="invisible"
                                 />

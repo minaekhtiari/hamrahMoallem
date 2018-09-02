@@ -7,6 +7,7 @@
     android:padding="8dp"
     >
     <TextView
+        android:text="text"
         android:id="@+id/toolbar_all_frameTitle_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,19 +17,18 @@
         android:textColor="@color/white"
         android:textSize="12sp"
         />
-
     <RelativeLayout
         android:id="@+id/toolbar_all_imageBack_relative"
         android:layout_width="30dp"
         android:layout_height="match_parent"
         android:layout_marginRight="8dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentEnd="true">
 
         <ImageView
             android:id="@+id/toolbar_all_imageBack"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:src="@drawable/back_icon"
             android:tint="@color/white"

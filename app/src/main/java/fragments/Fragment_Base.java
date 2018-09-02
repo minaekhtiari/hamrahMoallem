@@ -137,7 +137,7 @@ public class Fragment_Base extends Fragment {
 
             @Override
             public void onFailure(Call<VersionInfo> call, Throwable t) {
-                Toast.makeText(getContext(),t.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"لطفا اینترنت خود را وصل کنید.",Toast.LENGTH_LONG).show();
             }
         });
 

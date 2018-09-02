@@ -31,6 +31,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.appunite.appunitevideoplayer.PlayerActivity;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
@@ -108,9 +109,9 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
 
     TextView tvLikeCount;
     TextView tvViewCount;
-    TextView tvDateYear;
-    TextView tvDateMounth;
-    TextView tvDateDay;
+//    TextView tvDateYear;
+//    TextView tvDateMounth;
+//    TextView tvDateDay;
     TextView tvBackToolbar;
     TextView tvPrice;
     String imageFileId = null;
@@ -121,6 +122,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
     int position = 0;
     Content content = null;
     public MediaPlayer mp;
+    String title;
 
     @Nullable
     @Override
@@ -148,9 +150,9 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
         relativeLayoutToolbarBack = (RelativeLayout) getActivity().findViewById(R.id.toolbar_all_image_back);
         tvLikeCount = (TextView) getActivity().findViewById(R.id.fargment_articel_text_txtLikeCount);
         tvViewCount = (TextView) getActivity().findViewById(R.id.fargment_articel_text_txtViewCount);
-        tvDateYear = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateYear);
-        tvDateMounth = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateMounth);
-        tvDateDay = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateDay);
+//        tvDateYear = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateYear);
+//        tvDateMounth = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateMounth);
+//        tvDateDay = (TextView) getActivity().findViewById(R.id.fragment_articel_text_txtDateDay);
         tvBackToolbar = (TextView) getActivity().findViewById(R.id.fragment_article_text_tvBackActionBar);
         tvBackToolbar.setAlpha(0.5f);
         appBarLayout = (AppBarLayout) getActivity().findViewById(R.id.fragment_article_appbar);
@@ -163,7 +165,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
         ivBanner = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_ImageBanner);
         ivVideoIcon = (ImageView) getActivity().findViewById(R.id.fragment_article_collaps_image_videoIcon);
         tvBtnBuy = (TextView) getActivity().findViewById(R.id.fragment_article_btn_buy);
-        videoView=getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
+      //  videoView=getActivity().findViewById(R.id.fragment_article_collaps_videoBanner);
 //        ((FrameLayout) getActivity().findViewById(R.id.frameLayout_bottom_bar)).setVisibility(View.VISIBLE);
         tvBtnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,11 +263,12 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
             super.onPostExecute(page);
             new TaskLoadContent().execute(conentId);
             tvTextTitle.setText(Html.fromHtml(page.getTxtText()).toString());
+            title=(Html.fromHtml(page.getTxtText()).toString());
             tvLikeCount.setText(page.getLikeCount() + "");
             tvViewCount.setText(page.getViewCount() + "");
-            tvDateDay.setText(page.getDateDayNumber() + "");
-            tvDateMounth.setText(page.getDateMounthName() + "");
-            tvDateYear.setText(page.getDateYearName() + "");
+//            tvDateDay.setText(page.getDateDayNumber() + "");
+//            tvDateMounth.setText(page.getDateMounthName() + "");
+//            tvDateYear.setText(page.getDateYearName() + "");
             String price = "";
             int color = 0;
             if(content.isIsFree()){
@@ -361,14 +364,19 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
                         if(!lock) {
                             if (!videoVisible) {
                                 if (videoUrl.length() > 0) {
+                                    startActivity(PlayerActivity.getVideoPlayerIntent(getContext(),
+
+                                            videoUrl,
+                                            title));
+
 //                                    Intent intentVideo = new Intent(Intent.ACTION_VIEW);
 //                                    intentVideo.setDataAndType(Uri.parse(videoUrl), "video/*");
 //                                    startActivity(intentVideo);
-                                    MediaController mediaController=new MediaController(getContext());
-                                    mediaController.setAnchorView(videoView);
-                                    videoView.setMediaController(mediaController);
-                                    videoView.setVideoURI(Uri.parse(videoUrl));
-                                    videoView.start();
+//                                    MediaController mediaController=new MediaController(getContext());
+//                                    mediaController.setAnchorView(videoView);
+//                                    videoView.setMediaController(mediaController);
+//                                    videoView.setVideoURI(Uri.parse(videoUrl));
+//                                    videoView.start();
 
                                 }
                                 videoVisible = true;
@@ -466,7 +474,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
                         }
                         @Override
                         public void onFailure(Call<FileGiver> call, Throwable t) {
-
+                        Toast.makeText(getContext(),""+t,Toast.LENGTH_LONG).show();
                         }
                     });
                 }
@@ -489,7 +497,7 @@ public class Fragment_ArticleTextView2 extends Fragment implements View.OnClickL
                             }
                             @Override
                             public void onFailure(Call<FileGiver> call, Throwable t) {
-
+                                Toast.makeText(getContext(),""+t,Toast.LENGTH_LONG).show();
                             }
                         });
                     }

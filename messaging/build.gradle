@@ -11,6 +11,11 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        ndk {
+            // config you want to support device
+            abiFilters 'arm64-v8a', 'armeabi', 'armeabi-v7a', 'x86'
+        }
+
     }
     buildTypes {
         release {

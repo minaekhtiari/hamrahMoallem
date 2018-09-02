@@ -20,297 +20,283 @@
             />
     </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relative"
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true">
+
+        <LinearLayout
+            android:id="@+id/linearInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_centerInParent="true"
-            >
+            android:layout_height="310dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/curve_bg_white"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:id="@+id/linearInput"
                 android:layout_width="match_parent"
-                android:layout_height="310dp"
-                android:background="@drawable/curve_bg_white"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true">
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingRight="8dp"
+                <EditText
+                    android:id="@+id/fragment_register_EditMobile"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center"
+                    android:hint="@string/hint_mobile"
+                    android:inputType="phone"
+                    android:maxLength="11"
                     android:paddingLeft="8dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/mobile"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        />
-
-                    <EditText
-                        android:id="@+id/fragment_register_EditMobile"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:hint="@string/hint_mobile"
-                        android:inputType="phone"
-                        android:background="@android:color/transparent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:maxLength="11"
-                        android:paddingLeft="8dp"
-                        android:paddingTop="8dp"
-                        android:paddingRight="8dp"
-                        android:textColor="@color/gray_500"
-                        android:textSize="14sp"
-                        />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_200" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
                     android:paddingRight="8dp"
-                    android:paddingLeft="8dp"
-                    >
+                    android:paddingTop="8dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/face"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:tint="@color/gray_500"
-                        />
-
-                    <EditText
-                        android:id="@+id/fragment_register_EditName"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:hint="@string/hint_name"
-                        android:inputType="text"
-                        android:background="@android:color/transparent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:maxLength="50"
-                        android:paddingLeft="8dp"
-                        android:paddingTop="8dp"
-                        android:textColor="@color/gray_500"
-                        android:paddingRight="8dp"
-                        android:textSize="14sp"
-                        />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_200" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingRight="8dp"
-                    android:paddingLeft="8dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/face"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:tint="@color/gray_500"
-                        />
-
-                    <EditText
-                        android:id="@+id/fragment_register_EditFamily"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:hint="@string/hint_family"
-                        android:inputType="text"
-                        android:background="@android:color/transparent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:maxLength="50"
-                        android:paddingLeft="8dp"
-                        android:paddingTop="8dp"
-                        android:textColor="@color/gray_500"
-                        android:paddingRight="8dp"
-                        android:textSize="14sp"
-                        />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_200" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/university"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="8dp"
-                        android:tint="@color/gray_500"
-                        />
-                    <Spinner
-                        android:id="@+id/fragment_register_spinnerMaghta"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:spinnerMode="dialog"
-                        style="SpinnerStyle"
-                        ></Spinner>
-
-                </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_200" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/school"
-                        android:layout_gravity="center"
-                        android:tint="@color/gray_500"
-                        android:layout_marginRight="8dp"
-                        />
-
-                    <Spinner
-                        android:id="@+id/fragment_register_spinnerPayeh"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:spinnerMode="dialog"
-                        ></Spinner>
-
-                </LinearLayout>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/gray_200" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:paddingRight="8dp"
-                    android:paddingLeft="8dp"
-                    >
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/sex"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/fragment_register_EditSex"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:hint="@string/hint_sex"
-                        android:inputType="phone"
-                        android:background="@android:color/transparent"
-                        android:layout_weight="8"
-                        android:gravity="start|center"
-                        android:maxLength="11"
-                        android:paddingRight="8dp"
-                        />
-
-                    <LinearLayout
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:gravity="left"
-                        >
-                        <LinearLayout
-                            android:id="@+id/fragment_register_linear_male"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="6dp"
-                            android:gravity="center"
-                            >
-
-                            <ImageView
-                                android:id="@+id/fragment_register_image_male"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/male_gray"
-                                android:layout_gravity="center"
-                                />
-
-                            <TextView
-                                android:id="@+id/fragment_register_text_male"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/man"
-                                android:textSize="9sp"
-                                android:textColor="@color/gray"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/fragment_register_linear_female"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:padding="5dp"
-                            android:gravity="center"
-
-                            >
-                            <ImageView
-                                android:id="@+id/fragment_register_image_female"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/female_red"
-                                android:layout_gravity="center"
-                                />
-                            <TextView
-                                android:id="@+id/fragment_register_text_female"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/woman"
-                                android:textSize="9sp"
-                                android:textColor="@color/red"
-                                />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/mobile" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200" />
 
-        </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <EditText
+                    android:id="@+id/fragment_register_EditName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center"
+                    android:hint="@string/hint_name"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/face"
+                    android:tint="@color/gray_500" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <EditText
+                    android:id="@+id/fragment_register_EditFamily"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center"
+                    android:hint="@string/hint_family"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/gray_500"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/face"
+                    android:tint="@color/gray_500" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+
+                >
+
+                <Spinner
+                    android:id="@+id/fragment_register_spinnerMaghta"
+                    style="SpinnerStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="start|center"
+                    android:spinnerMode="dialog"></Spinner>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/university"
+                    android:tint="@color/gray_500" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/fragment_register_spinnerPayeh"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="start|center"
+                    android:spinnerMode="dialog"></Spinner>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/school"
+                    android:tint="@color/gray_500" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_200" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <TextView
+
+                    android:id="@+id/fragment_register_EditSex"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:background="@android:color/transparent"
+                    android:gravity="start|center"
+                    android:hint="@string/hint_sex"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                  />
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/fragment_register_linear_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="6dp">
+
+                        <ImageView
+                            android:id="@+id/fragment_register_image_male"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/male_gray" />
+
+                        <TextView
+                            android:id="@+id/fragment_register_text_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/man"
+                            android:textColor="@color/gray"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_register_linear_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/fragment_register_image_female"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/female_red" />
+
+                        <TextView
+                            android:id="@+id/fragment_register_text_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/woman"
+                            android:textColor="@color/red"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/sex" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/fragment_register_Btn_register"

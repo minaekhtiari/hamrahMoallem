@@ -124,6 +124,7 @@
         android:layout_below="@+id/relative_toolbar"
         >
         <TextView
+            android:layout_alignParentRight="true"
             android:id="@+id/fragment_messaging_voice_new_text_subject"
             android:layout_width="wrap_content"
             android:layout_height="50dp"

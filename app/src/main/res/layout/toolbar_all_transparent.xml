@@ -10,7 +10,7 @@
         android:id="@+id/toolbar_all_imageMessage_relative"
         android:layout_width="30dp"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
+
         android:layout_centerVertical="true"
         android:layout_marginLeft="8dp"
         android:visibility="invisible"
@@ -31,6 +31,7 @@
             android:layout_marginTop="8dp"
             android:layout_alignParentRight="true"
             >
+
             <ImageView
                 android:id="@+id/toolbar_all_transparent_image_newAnswerCountBack"
                 android:layout_width="match_parent"
@@ -74,12 +75,12 @@
         android:layout_height="match_parent"
         android:layout_marginRight="8dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentEnd="true">
 
         <ImageView
             android:id="@+id/toolbar_all_imageBack"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:src="@drawable/back_icon"
             android:tint="@color/white"

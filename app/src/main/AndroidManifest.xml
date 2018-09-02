@@ -19,8 +19,8 @@
         android:label="@string/titr"
         android:largeHeap="true"
         android:theme="@style/AppTheme"
-        tools:replace="label"
-        >
+        android:supportsRtl="false"
+        tools:replace="android:supportsRtl,android:label"        >
         <activity
             android:name=".HOME"
             android:screenOrientation="portrait">

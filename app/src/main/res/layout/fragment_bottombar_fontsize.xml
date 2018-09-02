@@ -22,7 +22,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/close"
-            android:layout_alignParentLeft="true"
+
             android:layout_centerVertical="true"
             android:padding="15dp"
             android:tint="@color/red"

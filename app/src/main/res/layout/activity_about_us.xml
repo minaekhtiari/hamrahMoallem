@@ -4,15 +4,33 @@
     android:id="@+id/activity_about_us"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
     tools:context="apps.hillavas.com.hamrahdars.AboutUs">
 
     <RelativeLayout
+
         android:id="@+id/relative_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/bg_red_bottom_shadow"
         >
+        <RelativeLayout
+            android:id="@+id/aboutUs_imageBack_relative"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/back_icon"
+                android:tint="@color/white"
+                />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/aboutus_frameTitle_text"
             android:layout_width="match_parent"
@@ -24,27 +42,20 @@
             android:text="درباره همراه معلم"
             />
 
-        <RelativeLayout
-            android:id="@+id/aboutUs_imageBack_relative"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/aboutUs_imageBack_relative"-->
+            <!--android:background="@drawable/back_icon"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentEnd="true">-->
 
-            <ImageView
-                android:id="@+id/toolbar_all_imageBack"
-                android:padding="12dp"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/back_icon"
-                android:tint="@color/white"
-                />
-        </RelativeLayout>
+        <!--</RelativeLayout>-->
 
     </RelativeLayout>
 
     <RelativeLayout
+
         android:id="@+id/personal_card_2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,6 +79,17 @@
                 android:paddingRight="32dp" />
 
         </android.support.v4.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/toolbar_all_imageBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="163dp"
+            android:padding="12dp"
+            android:src="@drawable/back_icon"
+            android:tint="@color/white" />
     </RelativeLayout>
 
 </RelativeLayout>

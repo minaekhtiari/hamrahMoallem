@@ -181,7 +181,7 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
        // int lastSelectedCategoryId = 0;
 
         //if(sharedPreferencesHome.contains(LAST_CATEGORYID_SELECTED))
-            new TaskLoadContents().execute(sharedPreferencesHome.getInt(LAST_CATEGORYID_SELECTED , 491));
+
 
 //        if(lastSelectedCategoryId > 0)
 //            selectedCategoryId = lastSelectedCategoryId;
@@ -506,161 +506,163 @@ public class Fragment_pager extends Fragment implements View.OnClickListener{
 
     @Override
     public void onResume() {
-
+        int last_category=sharedPreferencesHome.getInt(LAST_CATEGORYID_SELECTED , 491);
+        new TaskLoadContents().execute(last_category);
         super.onResume();
-        if (sharedPreferencesHome.getBoolean("BUY", false)) {
-            int positionFromBuying = (sharedPreferencesHome.getInt("BUY_POSITION", -1));
-            sharedPreferencesHome.edit().putInt("BUY_POSITION", -1).commit();
-            sharedPreferencesHome.edit().putBoolean("BUY", false).commit();
-            sharedPreferencesHome.edit().putBoolean("FROM_PAGER_BUY", false).commit();
-            new TaskLoadContents().execute(selectedCategoryId);
-            try {
-                tvNavCredit.setText(" اعتبار : " + sharedPreferencesHome.getInt("CREDIT", 0) + " ریال ");
-            }catch (Exception e){}
-        }
 
-        final TextView tvTitle;
-        final TextView tvContent;
-        final TextView tvDismiss;
-
-
-//        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.activity_menu_fabChangePage);
-        final ImageView iv = (ImageView) getActivity().findViewById(R.id.iv);
-        final ImageView ivMessage = (ImageView) getActivity().findViewById(toolbar_home_imageMessage);
-
+//        if (sharedPreferencesHome.getBoolean("BUY", false)) {
+//            int positionFromBuying = (sharedPreferencesHome.getInt("BUY_POSITION", -1));
+//            sharedPreferencesHome.edit().putInt("BUY_POSITION", -1).commit();
+//            sharedPreferencesHome.edit().putBoolean("BUY", false).commit();
+//            sharedPreferencesHome.edit().putBoolean("FROM_PAGER_BUY", false).commit();
+//            new TaskLoadContents().execute(selectedCategoryId);
+//            try {
+//                tvNavCredit.setText(" اعتبار : " + sharedPreferencesHome.getInt("CREDIT", 0) + " ریال ");
+//            }catch (Exception e){}
+//        }
 //
-
-
-
-        tvTitle = (TextView) getActivity().findViewById(R.id.tv_title);
-        tvContent = (TextView) getActivity().findViewById(R.id.tv_content);
-        tvDismiss = (TextView) getActivity().findViewById(R.id.tv_dismiss);
-
-        if(tvTitle != null && tvContent != null && tvDismiss != null) {
-
-
-            final LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            llpTitle.setMargins(0, 50, 0, 50);
-            tvTitle.setLayoutParams(llpTitle);
-            tvTitle.setTextSize(16);
-
-            final LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            llpContent.setMargins(0, 50, 0, 50);
-            tvContent.setLayoutParams(llpContent);
-            tvContent.setTextSize(14);
-            tvContent.setTextColor(Color.WHITE);
-            tvContent.setLinkTextColor(Color.WHITE);
-            tvContent.setHighlightColor(Color.GRAY);
-            tvContent.setLineSpacing(1f, 2f);
-            tvContent.setAlpha(1.0f);
-
-            tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            llp.setMargins(0, 100, 0, 0);
-            tvDismiss.setLayoutParams(llp);
-            tvDismiss.setTextColor(Color.GREEN);
-            tvDismiss.setPadding(32, 0, 32, 0);
-            tvDismiss.setTextSize(16);
-            tvDismiss.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-//                    mv.hide();
-
-                    final MaterialShowcaseView mv2 = new MaterialShowcaseView.Builder(getActivity())
-                            .setTarget(iv)
-                            .setDismissText("خُب")
-                            .setContentText("با یک لمس جزئیات و با لمس مجدد این گزینه ویدئوی مربوطه را مشاهده نمائید")
-                            .setTitleText("مشاهده جزئیات")
-                            .setContentTextColor(R.color.white)
-                            .setMaskColour(Color.parseColor("#DD0033a7"))
-                            .setDelay(500)
-                            .setShapePadding(30)
-                            .singleUse("2")
-                            .show();
-
-                    TextView tvTitle = (TextView) mv2.findViewById(R.id.tv_title);
-                    LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    llpTitle.setMargins(0, 50, 0, 50);
-                    tvTitle.setLayoutParams(llpTitle);
-                    tvTitle.setTextSize(16);
-
-
-                    TextView tvContent = (TextView) mv2.findViewById(R.id.tv_content);
-                    LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    llpContent.setMargins(0, 50, 0, 50);
-                    tvContent.setLayoutParams(llpContent);
-                    tvContent.setTextSize(14);
-                    tvContent.setTextColor(Color.WHITE);
-                    tvContent.setLinkTextColor(Color.WHITE);
-                    tvContent.setHighlightColor(Color.GRAY);
-                    tvContent.setLineSpacing(1f, 2f);
-                    tvContent.setAlpha(1.0f);
-
-
-                    TextView tvDismiss = (TextView) mv2.findViewById(R.id.tv_dismiss);
-                    tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                    LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    llp.setMargins(0, 100, 0, 0);
-                    tvDismiss.setLayoutParams(llp);
-                    tvDismiss.setTextColor(Color.GREEN);
-                    tvDismiss.setPadding(32, 0, 32, 0);
-                    tvDismiss.setTextSize(16);
-                    tvDismiss.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mv2.hide();
-
-                            final MaterialShowcaseView mv3 = new MaterialShowcaseView.Builder(getActivity())
-                                    .setTarget(ivMessage)
-                                    .setDismissText("خُب")
-                                    .setContentText("با استفاده از این قسمت می توانید پیام خصوصی برای اساتید ارسال نمائید")
-                                    .setTitleText("ارسال پیام و یا سوال")
-                                    .setContentTextColor(R.color.white)
-                                    .setMaskColour(Color.parseColor("#DD0033a7"))
-                                    .setDelay(500)
-                                    .setShapePadding(30)
-                                    .singleUse("3")
-                                    .show();
-
-                            TextView tvTitle = (TextView) mv3.findViewById(R.id.tv_title);
-                            LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                            llpTitle.setMargins(0, 50, 0, 50);
-                            tvTitle.setLayoutParams(llpTitle);
-                            tvTitle.setTextSize(16);
-
-
-                            TextView tvContent = (TextView) mv3.findViewById(R.id.tv_content);
-                            LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                            llpContent.setMargins(0, 50, 0, 50);
-                            tvContent.setLayoutParams(llpContent);
-                            tvContent.setTextSize(14);
-                            tvContent.setTextColor(Color.WHITE);
-                            tvContent.setLinkTextColor(Color.WHITE);
-                            tvContent.setHighlightColor(Color.GRAY);
-                            tvContent.setLineSpacing(1f, 2f);
-                            tvContent.setAlpha(1.0f);
-
-
-                            TextView tvDismiss = (TextView) mv3.findViewById(R.id.tv_dismiss);
-                            tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
-                            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                            llp.setMargins(0, 100, 0, 0);
-                            tvDismiss.setLayoutParams(llp);
-                            tvDismiss.setTextColor(Color.GREEN);
-                            tvDismiss.setPadding(32, 0, 32, 0);
-                            tvDismiss.setTextSize(16);
-                            tvDismiss.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    mv3.hide();
-                                }
-                            });
-                        }
-
-                    });
-                }
-            });
-        }
+//        final TextView tvTitle;
+//        final TextView tvContent;
+//        final TextView tvDismiss;
+//
+//
+////        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.activity_menu_fabChangePage);
+//        final ImageView iv = (ImageView) getActivity().findViewById(R.id.iv);
+//        final ImageView ivMessage = (ImageView) getActivity().findViewById(toolbar_home_imageMessage);
+//
+////
+//
+//
+//
+//        tvTitle = (TextView) getActivity().findViewById(R.id.tv_title);
+//        tvContent = (TextView) getActivity().findViewById(R.id.tv_content);
+//        tvDismiss = (TextView) getActivity().findViewById(R.id.tv_dismiss);
+//
+//        if(tvTitle != null && tvContent != null && tvDismiss != null) {
+//
+//
+//            final LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            llpTitle.setMargins(0, 50, 0, 50);
+//            tvTitle.setLayoutParams(llpTitle);
+//            tvTitle.setTextSize(16);
+//
+//            final LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            llpContent.setMargins(0, 50, 0, 50);
+//            tvContent.setLayoutParams(llpContent);
+//            tvContent.setTextSize(14);
+//            tvContent.setTextColor(Color.WHITE);
+//            tvContent.setLinkTextColor(Color.WHITE);
+//            tvContent.setHighlightColor(Color.GRAY);
+//            tvContent.setLineSpacing(1f, 2f);
+//            tvContent.setAlpha(1.0f);
+//
+//            tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+//            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            llp.setMargins(0, 100, 0, 0);
+//            tvDismiss.setLayoutParams(llp);
+//            tvDismiss.setTextColor(Color.GREEN);
+//            tvDismiss.setPadding(32, 0, 32, 0);
+//            tvDismiss.setTextSize(16);
+//            tvDismiss.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+////                    mv.hide();
+//
+//                    final MaterialShowcaseView mv2 = new MaterialShowcaseView.Builder(getActivity())
+//                            .setTarget(iv)
+//                            .setDismissText("خُب")
+//                            .setContentText("با یک لمس جزئیات و با لمس مجدد این گزینه ویدئوی مربوطه را مشاهده نمائید")
+//                            .setTitleText("مشاهده جزئیات")
+//                            .setContentTextColor(R.color.white)
+//                            .setMaskColour(Color.parseColor("#DD0033a7"))
+//                            .setDelay(500)
+//                            .setShapePadding(30)
+//                            .singleUse("2")
+//                            .show();
+//
+//                    TextView tvTitle = (TextView) mv2.findViewById(R.id.tv_title);
+//                    LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                    llpTitle.setMargins(0, 50, 0, 50);
+//                    tvTitle.setLayoutParams(llpTitle);
+//                    tvTitle.setTextSize(16);
+//
+//
+//                    TextView tvContent = (TextView) mv2.findViewById(R.id.tv_content);
+//                    LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                    llpContent.setMargins(0, 50, 0, 50);
+//                    tvContent.setLayoutParams(llpContent);
+//                    tvContent.setTextSize(14);
+//                    tvContent.setTextColor(Color.WHITE);
+//                    tvContent.setLinkTextColor(Color.WHITE);
+//                    tvContent.setHighlightColor(Color.GRAY);
+//                    tvContent.setLineSpacing(1f, 2f);
+//                    tvContent.setAlpha(1.0f);
+//
+//
+//                    TextView tvDismiss = (TextView) mv2.findViewById(R.id.tv_dismiss);
+//                    tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+//                    LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                    llp.setMargins(0, 100, 0, 0);
+//                    tvDismiss.setLayoutParams(llp);
+//                    tvDismiss.setTextColor(Color.GREEN);
+//                    tvDismiss.setPadding(32, 0, 32, 0);
+//                    tvDismiss.setTextSize(16);
+//                    tvDismiss.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            mv2.hide();
+//
+//                            final MaterialShowcaseView mv3 = new MaterialShowcaseView.Builder(getActivity())
+//                                    .setTarget(ivMessage)
+//                                    .setDismissText("خُب")
+//                                    .setContentText("با استفاده از این قسمت می توانید پیام خصوصی برای اساتید ارسال نمائید")
+//                                    .setTitleText("ارسال پیام و یا سوال")
+//                                    .setContentTextColor(R.color.white)
+//                                    .setMaskColour(Color.parseColor("#DD0033a7"))
+//                                    .setDelay(500)
+//                                    .setShapePadding(30)
+//                                    .singleUse("3")
+//                                    .show();
+//
+//                            TextView tvTitle = (TextView) mv3.findViewById(R.id.tv_title);
+//                            LinearLayout.LayoutParams llpTitle = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                            llpTitle.setMargins(0, 50, 0, 50);
+//                            tvTitle.setLayoutParams(llpTitle);
+//                            tvTitle.setTextSize(16);
+//
+//
+//                            TextView tvContent = (TextView) mv3.findViewById(R.id.tv_content);
+//                            LinearLayout.LayoutParams llpContent = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                            llpContent.setMargins(0, 50, 0, 50);
+//                            tvContent.setLayoutParams(llpContent);
+//                            tvContent.setTextSize(14);
+//                            tvContent.setTextColor(Color.WHITE);
+//                            tvContent.setLinkTextColor(Color.WHITE);
+//                            tvContent.setHighlightColor(Color.GRAY);
+//                            tvContent.setLineSpacing(1f, 2f);
+//                            tvContent.setAlpha(1.0f);
+//
+//
+//                            TextView tvDismiss = (TextView) mv3.findViewById(R.id.tv_dismiss);
+//                            tvDismiss.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
+//                            LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                            llp.setMargins(0, 100, 0, 0);
+//                            tvDismiss.setLayoutParams(llp);
+//                            tvDismiss.setTextColor(Color.GREEN);
+//                            tvDismiss.setPadding(32, 0, 32, 0);
+//                            tvDismiss.setTextSize(16);
+//                            tvDismiss.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+//                                    mv3.hide();
+//                                }
+//                            });
+//                        }
+//
+//                    });
+//                }
+//            });
+//        }
 
     }
 

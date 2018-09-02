@@ -38,7 +38,8 @@ public class  CommonFragment extends Fragment implements DragLayout.GotoDetailLi
 
     SharedPreferences sharedPreferencesHome;
     private ImageView imageView,imageViewLock;
-    private TextView titr1Text,titr2Text,textViewCount,textLikeCount , textDateDay,textDateMounth,textDateYear;
+    private TextView titr1Text,titr2Text,textViewCount,textLikeCount ;
+          //  , textDateDay,textDateMounth,textDateYear;
     private RatingBar ratingBar;
     private View head1, head2, head3, head4;
     private String imageUrl;
@@ -67,16 +68,16 @@ public class  CommonFragment extends Fragment implements DragLayout.GotoDetailLi
         titr2Text = (TextView) dragLayout.findViewById(R.id.common_text_titr2);
         textViewCount = (TextView) dragLayout.findViewById(R.id.fragment_common_textViewCount);
         textLikeCount = (TextView) dragLayout.findViewById(R.id.fragment_common_textLikeCount);
-        textDateDay = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateDay);
-        textDateMounth = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateMounth);
-        textDateYear = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateYear);
+//        textDateDay = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateDay);
+//        textDateMounth = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateMounth);
+//        textDateYear = (TextView) dragLayout.findViewById(R.id.fragment_common_txtDateYear);
 
         ratingBar = (RatingBar) dragLayout.findViewById(R.id.rating);
         titr1Text.setText(record.getSubject());
         String titr2Str = Html.fromHtml(record.getBody().toString()).toString();
         textLikeCount.setText(record.getLikeCount()+"");
         textViewCount.setText(record.getViewCount()+"");
-        textDateMounth.setText(record.getInsertDateSh());
+       // textDateMounth.setText(record.getInsertDateSh());
         if(titr2Str.length() > 50){
             titr2Str = titr2Str.substring(0 , 50 ) + " ... ";
         }

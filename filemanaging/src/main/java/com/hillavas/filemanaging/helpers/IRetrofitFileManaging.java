@@ -28,6 +28,8 @@ public interface IRetrofitFileManaging {
     Call<ResultJsonGetFileURL> getFileUrl(@Query("fileId") String fileId,
                                           @Query("fileType") String fileType);
 
+    //99873ef7-dc59-4e24-81a5-35e4f9a1a7b0
+
     @GET("file/downloadByteArray")
     Call<ResultJsonGetFileByteArray> getFileByteArray(@Query("fileId") String fileId,
                                                        @Query("fileType") String fileType);

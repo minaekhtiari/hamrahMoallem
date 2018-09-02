@@ -16,8 +16,8 @@ android {
         applicationId "apps.hillavas.com.hamrahdars"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.1"
+        versionCode 4
+        versionName "1.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -58,6 +58,14 @@ dependencies {
     implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
     implementation 'fm.jiecao:jiecaovideoplayer:1.7'
     implementation 'com.github.apl-devs:appintro:v4.2.3'
+
+
+
+    implementation 'com.github.appunite:video-player-android:master-SNAPSHOT'
+
+    // or use specific version
+    implementation 'com.github.appunite:video-player-android:1.0.1'
+
     compile('com.crashlytics.sdk.android:crashlytics:2.9.4@aar') {
         transitive = true;
     }

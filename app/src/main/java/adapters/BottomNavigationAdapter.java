@@ -31,13 +31,13 @@ public class BottomNavigationAdapter extends FragmentPagerAdapter {
         switch (position) {
 //            case 4:
 //                return  new Fragment_personal();
-            case 3:
+            case 0:
                 return  new Fragment_personal();
             case 2:
                 return  new Fragment_content2();
             case 1:
                 return  new Fragment_Base();
-            case 0:
+            case 3:
                 return  new Fragment_Messages();
         }
         return null;

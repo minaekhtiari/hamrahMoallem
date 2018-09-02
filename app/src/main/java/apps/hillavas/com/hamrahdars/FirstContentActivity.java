@@ -1,7 +1,9 @@
 package apps.hillavas.com.hamrahdars;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -84,7 +86,7 @@ public class FirstContentActivity extends AppCompatActivity {
     public static final String SENT_MESSAGE = "SENT_MESSAGE";
     public static final String GUID = "GUID";
     public static final String UNREAD_ANSWERS = "UNREAD_ANSWERS";
-    public static final String PICTURE_PROFILE_ADDRESS="PICTURE_PROFILE_ADDRESS";
+    public static final String PICTURE_PROFILE_ADDRESS = "PICTURE_PROFILE_ADDRESS";
 
 
     SharedPreferences sharedPreferencesHome;
@@ -105,10 +107,10 @@ public class FirstContentActivity extends AppCompatActivity {
     static ViewPager viewPager;
     static AHBottomNavigation bottomNavigation;
     private Bitmap bmpImage = null;
-    private String fileUrl = null ;
-    private String fileAddress = null ;
+    private String fileUrl = null;
+    private String fileAddress = null;
     ImageView imagePersonalPictureFromFragment;
-
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,8 +128,6 @@ public class FirstContentActivity extends AppCompatActivity {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             window.setStatusBarColor(getResources().getColor(R.color.statusBarColor));
-
-
 
 
         viewPager = (ViewPager) findViewById(view_pager);
@@ -172,10 +172,11 @@ public class FirstContentActivity extends AppCompatActivity {
 
 // Add items
 //        bottomNavigation.addItem(item1);
-        bottomNavigation.addItem(item2);
+        bottomNavigation.addItem(item5);
         bottomNavigation.addItem(item3);
         bottomNavigation.addItem(item4);
-        bottomNavigation.addItem(item5);
+        bottomNavigation.addItem(item2);
+
 
         bottomNavigation.setDefaultBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
@@ -194,12 +195,12 @@ public class FirstContentActivity extends AppCompatActivity {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
 
-                if(getSupportFragmentManager().getBackStackEntryCount() > 0)
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0)
                     getSupportFragmentManager().popBackStack();
-                else if(getFragmentManager().getBackStackEntryCount() > 0)
+                else if (getFragmentManager().getBackStackEntryCount() > 0)
                     getFragmentManager().popBackStack();
 
-                ((FrameLayout)findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
+                ((FrameLayout) findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
                 viewPager.setCurrentItem(position, false);
 
 //                View view = HomeActivity.this.getCurrentFocus();
@@ -218,8 +219,8 @@ public class FirstContentActivity extends AppCompatActivity {
 
     private void getDeviceinfo() {
 
-        Device device=new Device();
-        AndroidUtils androidUtils=new AndroidUtils(this);
+        Device device = new Device();
+        AndroidUtils androidUtils = new AndroidUtils(this);
         device.setManufacture(String.valueOf(androidUtils.getManufacturer()));
         device.setCpu(androidUtils.getCpu());
         device.setOperator(androidUtils.getSimOperator());
@@ -237,18 +238,16 @@ public class FirstContentActivity extends AppCompatActivity {
         device.setOsName("Android");
 
 
-
-
         RetrofitFactory.getRetrofitClient().getDeviceifo(device).enqueue(new Callback<ResultJson>() {
             @Override
             public void onResponse(Call<ResultJson> call, Response<ResultJson> response) {
-               // Toast.makeText(FirstContentActivity.this,response.toString(),Toast.LENGTH_LONG).show();
+                // Toast.makeText(FirstContentActivity.this,response.toString(),Toast.LENGTH_LONG).show();
 
             }
 
             @Override
             public void onFailure(Call<ResultJson> call, Throwable t) {
-               // Toast.makeText(FirstContentActivity.this,t.toString(),Toast.LENGTH_LONG).show();
+                // Toast.makeText(FirstContentActivity.this,t.toString(),Toast.LENGTH_LONG).show();
 
             }
         });
@@ -273,7 +272,7 @@ public class FirstContentActivity extends AppCompatActivity {
         }
     }
 
-    class TaskUploadFile extends AsyncTask<FileForUpload , Void , JSONObject> {
+    class TaskUploadFile extends AsyncTask<FileForUpload, Void, JSONObject> {
 
         @Override
         protected JSONObject doInBackground(FileForUpload... params) {
@@ -290,9 +289,9 @@ public class FirstContentActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
             super.onPostExecute(jsonObject);
-            if(jsonObject != null){
+            if (jsonObject != null) {
                 Gson gson = new Gson();
-                ResultUploadFileResponse resultUploadResponse = gson.fromJson(jsonObject.toString() ,ResultUploadFileResponse.class);
+                ResultUploadFileResponse resultUploadResponse = gson.fromJson(jsonObject.toString(), ResultUploadFileResponse.class);
                 fileUrl = resultUploadResponse.getFileID();
                 new TaskLoadImageAddress().execute(fileUrl);
 
@@ -300,27 +299,28 @@ public class FirstContentActivity extends AppCompatActivity {
         }
     }
 
-    class TaskLoadImageAddress extends AsyncTask<String , Void , String>{
+    class TaskLoadImageAddress extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
-            return FileManagerHelper.getOneFileAddress(params[0] , "image");
+            return FileManagerHelper.getOneFileAddress(params[0], "image");
         }
+
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             fileAddress = s;
-            sharedPreferencesHome.edit().putString(PICTURE_PROFILE_ADDRESS , s).commit();
+            sharedPreferencesHome.edit().putString(PICTURE_PROFILE_ADDRESS, s).commit();
 
             viewPager.setCurrentItem(3);
             viewPager.setCurrentItem(4);
         }
     }
 
-    public void removeFragments(){
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0)
+    public void removeFragments() {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0)
             getSupportFragmentManager().popBackStack();
-        else if(getFragmentManager().getBackStackEntryCount() > 0)
+        else if (getFragmentManager().getBackStackEntryCount() > 0)
             getFragmentManager().popBackStack();
     }
 
@@ -330,24 +330,41 @@ public class FirstContentActivity extends AppCompatActivity {
 //        Toast.makeText(this, "" + getSupportFragmentManager().getBackStackEntryCount() + " or " +
 //                getFragmentManager().getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
 
-        if(getSupportFragmentManager().getBackStackEntryCount() ==1)
-            ((FrameLayout)findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
-        if(getFragmentManager().getBackStackEntryCount() ==1)
-            ((FrameLayout)findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1)
+            ((FrameLayout) findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
+        if (getFragmentManager().getBackStackEntryCount() == 1)
+            ((FrameLayout) findViewById(R.id.first_frame)).setVisibility(View.INVISIBLE);
 
 
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0)
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0)
+
             getSupportFragmentManager().popBackStack();
-        else if(getFragmentManager().getBackStackEntryCount() > 0)
-            getFragmentManager().popBackStack();
-        else
-            super.onBackPressed();
+
+        else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("همراه معلم");
+            // builder.setIcon(R.);
+            builder.setMessage("آیا میخواهید خارج شوید؟")
+                    .setCancelable(false)
+                    .setPositiveButton("بله", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
 //        return;
     }
 
-    public static void gotoMessaging(){
-        bottomNavigation.setCurrentItem(0);
-        viewPager.setCurrentItem(0);
+    public static void gotoMessaging() {
+        bottomNavigation.setCurrentItem(3);
+        viewPager.setCurrentItem(3);
     }
 
     @Override

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:layoutDirection="rtl"
     android:orientation="vertical">
 
     <ScrollView
@@ -61,37 +60,13 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
 
-                <TextView
-                    android:id="@+id/personal_text_credit_titr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="اعتبار شما : "
-                    android:textSize="10sp" />
 
-                <TextView
-                    android:id="@+id/personal_text_credit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/personal_text_credit_titr"
-                    android:text="0"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/personal_text_credit"
-                    android:text=" ریال "
-                    android:textSize="10sp" />
 
 
                 <LinearLayout
                     android:id="@+id/personal_linear_addCredit"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:visibility="visible">
@@ -116,15 +91,43 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/personal_text_credit_titr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="اعتبار شما : "
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/personal_text_credit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/personal_text_credit_titr"
+                    android:text="0"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/personal_text_credit"
+                    android:text=" ریال "
+                    android:textSize="10sp" />
+
             </RelativeLayout>
 
             <RelativeLayout
+
                 android:id="@+id/relative_pic"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_below="@+id/personal_relative_1">
 
                 <android.support.v7.widget.CardView
+                    android:layout_alignParentRight="true"
                     android:id="@+id/personal_card_image_person"
                     android:layout_width="120dp"
                     android:layout_height="130dp"
@@ -135,6 +138,7 @@
                     app:cardCornerRadius="4dp">
 
                     <ImageView
+
                         android:id="@+id/personal_image_profile"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
@@ -143,6 +147,7 @@
                 </android.support.v7.widget.CardView>
 
                 <RelativeLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginBottom="16dp"
@@ -152,6 +157,7 @@
                     android:layout_toLeftOf="@id/personal_card_image_person">
 
                     <TextView
+                        android:layout_alignParentRight="true"
                         android:id="@+id/personal_text_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -162,7 +168,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:visibility="invisible"
+                        android:layout_alignParentRight="true"
                         android:id="@+id/personal_text_maghta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -170,7 +176,8 @@
                         android:layout_marginTop="8dp"
                         android:text=" مقطع تحصیلی"
                         android:textColor="@color/gray_700"
-                        android:textSize="11sp" />
+                        android:textSize="11sp"
+                        android:visibility="invisible" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -325,6 +332,7 @@
                     android:paddingRight="8dp">
 
                     <ImageView
+                        android:layout_alignParentRight="true"
                         android:id="@+id/image1"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
@@ -335,6 +343,7 @@
                         android:tint="@color/gray_300" />
 
                     <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -346,7 +355,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/arrow_left"
                         android:tint="@color/gray_300" />
@@ -369,6 +378,7 @@
                     android:paddingRight="8dp">
 
                     <ImageView
+                        android:layout_alignParentRight="true"
                         android:id="@+id/image2"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
@@ -390,7 +400,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/arrow_left"
                         android:tint="@color/gray_300" />
@@ -413,6 +423,7 @@
                     android:paddingRight="8dp">
 
                     <ImageView
+                        android:layout_alignParentRight="true"
                         android:id="@+id/image3"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
@@ -434,7 +445,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/arrow_left"
                         android:tint="@color/gray_300" />
@@ -447,41 +458,42 @@
                     android:layout_below="@+id/personal_relative_report"
                     android:background="@color/gray_200" />
 
-                <!--<RelativeLayout-->
-                    <!--android:id="@+id/personal_relative_exitAccount"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:layout_below="@id/image_line4"-->
-                    <!--android:paddingLeft="8dp"-->
-                    <!--android:paddingRight="8dp">-->
+                <RelativeLayout
+                    android:id="@+id/personal_relative_exitAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/image_line4"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp">
 
-                    <!--<ImageView-->
-                        <!--android:id="@+id/image4"-->
-                        <!--android:layout_width="15dp"-->
-                        <!--android:layout_height="15dp"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:layout_marginLeft="8dp"-->
-                        <!--android:layout_marginRight="8dp"-->
-                        <!--android:src="@drawable/power"-->
-                        <!--android:tint="@color/gray_300" />-->
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/image4"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:src="@drawable/power"
+                        android:tint="@color/gray_300" />
 
-                    <!--<TextView-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:layout_toLeftOf="@id/image4"-->
-                        <!--android:text="خروج"-->
-                        <!--android:textColor="@color/gray_300"-->
-                        <!--android:textSize="10sp" />-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/image4"
+                        android:text="خروج"
+                        android:textColor="@color/gray_300"
+                        android:textSize="10sp" />
 
-                    <!--<ImageView-->
-                        <!--android:layout_width="15dp"-->
-                        <!--android:layout_height="15dp"-->
-                        <!--android:layout_alignParentEnd="true"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:src="@drawable/arrow_left"-->
-                        <!--android:tint="@color/gray_300" />-->
-                <!--</RelativeLayout>-->
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/arrow_left"
+                        android:tint="@color/gray_300" />
+                </RelativeLayout>
             </RelativeLayout>
 
         </LinearLayout>

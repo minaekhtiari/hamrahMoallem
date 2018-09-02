@@ -1,20 +1,17 @@
 package fragments;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +19,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,27 +27,16 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.hillavas.filemanaging.classes.FileForUpload;
 import com.hillavas.filemanaging.helpers.FileManagerHelper;
-import com.hillavas.messaging.classes.Question;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-import adapters.RecyclerView_Adapter_Category;
-import apps.hillavas.com.hamrahdars.AboutUs;
-import apps.hillavas.com.hamrahdars.BuyReportActivity;
-import apps.hillavas.com.hamrahdars.Buy_Credit_Activity;
 import apps.hillavas.com.hamrahdars.FirstContentActivity;
-import apps.hillavas.com.hamrahdars.MessagingActivity;
 import apps.hillavas.com.hamrahdars.R;
-import classes.justifiers.JustifiedTextView;
-import classes.models.CategoryWithParentChild;
 import classes.models.ProfileInfo;
 import classes.models.ProfileNew;
 import classes.models.Record;
@@ -64,7 +49,7 @@ import factories.FragmentHelper;
  * Created by A.Mohammadi on 1/10/2018.
  */
 
-public class Fragment_personal extends Fragment implements View.OnClickListener {
+public class Fragment_personal extends Fragment implements View.OnClickListener  {
 
     public static final String PICTURE_PROFILE_ADDRESS="PICTURE_PROFILE_ADDRESS";
     private static final int CAMERA_REQUEST = 1888;
@@ -126,7 +111,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_about)).setOnClickListener(this);
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_message)).setOnClickListener(this);
         ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_report)).setOnClickListener(this);
-      //  ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_exitAccount)).setOnClickListener(this);
+        ((RelativeLayout)getActivity().findViewById(R.id.personal_relative_exitAccount)).setOnClickListener(this);
         ((LinearLayout)getActivity().findViewById(R.id.personal_linear_addCredit)).setOnClickListener(this);
 
         tv.setText("مشترک گرامی\n" +
@@ -209,6 +194,7 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
                 dialogeditinfo.show();
             }
         });
+
     }
     private void resetMaleFemal(){
         ivMale.setImageResource(R.drawable.male_gray);
@@ -303,10 +289,27 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
 //                break;
 //            }
             //خروج
-//            case R.id.personal_relative_exitAccount: {
+            case R.id.personal_relative_exitAccount: {
 //                getActivity().finish();
 //                break;
-//            }
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("همراه معلم");
+               // builder.setIcon(R.);
+                builder.setMessage("آیا میخواهید خارج شوید؟")
+                        .setCancelable(false)
+                        .setPositiveButton("بله", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                              getActivity().finish();
+                            }
+                        })
+                        .setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
         }
     }
 
@@ -451,4 +454,6 @@ public class Fragment_personal extends Fragment implements View.OnClickListener 
 
         }
     }
+
+
 }
