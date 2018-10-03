@@ -14,8 +14,12 @@ public class SubscribeModel {
     @Expose
     private String Channel;
 
+    @SerializedName("ServiceId")
+    @Expose
+    private int ServiceId;
+
     public SubscribeModel() {
-        Channel = "App";
+        Channel = "A-Hilla";
     }
 
     public String getMobileNumber() {
@@ -33,5 +37,13 @@ public class SubscribeModel {
 
     public void setChannel(String channel) {
         Channel = channel;
+    }
+
+    public void setServiceId(int serviceId) {
+        ServiceId = serviceId;
+    }
+
+    public int getServiceId() {
+        return ServiceId;
     }
 }
